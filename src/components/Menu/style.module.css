@@ -1,0 +1,26 @@
+.menu {
+    display: flex;
+    justify-content: flex-end;
+    width: 110px;
+    color: var(--text);
+    font-family: 'Playfair Display', serif;
+}
+
+.nav ul {
+    list-style: none;
+    flex-direction: column;
+    border-radius: 1em;
+    background: var(--somberPurple);
+    overflow: hidden;
+}
+
+.nav li {
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.active{
+    background: var(--purple);
+}
+
+nav:not(.active){background: var(--somberPurple)}
