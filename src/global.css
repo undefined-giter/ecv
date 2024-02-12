@@ -1,4 +1,9 @@
 .dark{
-    background-color: #001826;
-    color: #00fffb;
+    background-color: var(--navyBlue);
+    color: var(--cyan);
+}
+
+.light{
+    background-color: var(--cyan);
+    color: var(--navyBlue);
 }

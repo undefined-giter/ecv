@@ -7,17 +7,45 @@ export  default function Menu(){
   const location = useLocation();
 
   const [darkMode, setDarkMode] = useState(true)
-  const [widthMenu, setWidthMenu] = useState(window.innerWidth >= 600 && window.screen.width >= 600);
-  const [menuBurgerDeployed, setMenuBurgerDeployed] = useState(false);
 
 
   useEffect(() => {
     const htmlElement = document.querySelector('html')
     if (htmlElement) {
-      if (darkMode) { htmlElement.classList.add('dark') }
-      else { htmlElement.classList.remove('dark') }
+      if (darkMode) { 
+        htmlElement.classList.add('dark')
+        htmlElement.classList.remove('light')
+      }
+      else {
+        htmlElement.classList.add('light')
+        htmlElement.classList.remove('dark')
+      }
     }
   }, [darkMode]);
+
+
+  function googleTranslateElementInit(){
+    new google.translate.TranslateElement(
+      {pageLanguage: 'auto'},
+      'google_translate_element'
+    )
+
+    const link = document.createElement('link')
+    link.rel = 'stylesheet'
+    link.href = 'src/components/Menu/googleTrad.css'
+    document.head.appendChild(link)
+  }
+  
+  const [imgShown, setImgShown] = useState(true)
+  const switchImgInput = ()=>{
+    setImgShown(!imgShown)
+
+    googleTranslateElementInit();
+  }
+
+
+  const [widthMenu, setWidthMenu] = useState(window.innerWidth >= 600 && window.screen.width >= 600);
+  const [menuBurgerDeployed, setMenuBurgerDeployed] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -28,34 +56,33 @@ export  default function Menu(){
     return()=>{window.removeEventListener("resize", handleResize)}
   }, []);
 
-  const toggleMenu = () =>{
-    setMenuBurgerDeployed(!menuBurgerDeployed)
-  }
+  const toggleMenu = () =>{setMenuBurgerDeployed(!menuBurgerDeployed)}
+
 
   return (
     <div>
-      <menu>
-        <div>
-          <div className={s.menu}>
-              <ul>
-                <li onClick={() => {navigate("/")}} className={location.pathname === "/" ? s.active : ""}>Présentation</li>
-                <li onClick={() => {navigate("/Curriculum")}} className={location.pathname === "/Curriculum" ? s.active : ""}>Curriculum</li>
-                <li onClick={() => {navigate("/Objectif")}} className={location.pathname === "/Objectif" ? s.active : ""}>Mon Objectif</li>
-                <li onClick={() => {navigate("/Réalisations")}} className={location.pathname === "/R%C3%alisations" ? s.active : ""}>Réalisations</li>
-                <li onClick={() => {navigate("/Hobbys")}} className={location.pathname === "/Hobbys" ? s.active : ""}>Hobbys</li>
-              </ul>
+      <div className={s.menuContainer}>
+        <nav>
+          <ul className={`${s.menu} ${darkMode ? s.dark_menu : s.light_menu}`}>
+            <li onClick={() => {navigate("/"); toggleMenu()}} className={location.pathname === "/" ? s.active : ""}>Présentation</li><span className={s.gray}>|</span>
+            <li onClick={() => {navigate("/Curriculum"); toggleMenu()}} className={location.pathname === "/Curriculum" ? s.active : ""}>Curriculum</li><span className={s.gray}>|</span>
+            <li onClick={() => {navigate("/Objectif"); toggleMenu()}} className={location.pathname === "/Objectif" ? s.active : ""}>Mon Objectif</li><span className={s.gray}>|</span>
+            <li onClick={() => {navigate("/Realisations"); toggleMenu()}} className={location.pathname === "/Realisations" ? s.active : ""}>Réalisations</li><span className={s.gray}>|</span>
+            <li onClick={() => {navigate("/Hobbys"); toggleMenu()}} className={location.pathname === "/Hobbys" ? s.active : ""}>Hobbys</li>
+          </ul>
+          <div className='flex absolute right-1 top-1'>
+            {imgShown && <button onClick={switchImgInput} className={s.btnLang}>
+                <img src="img/world.png" alt="Language Selection" />
+              </button>
+            }
+            <div id='google_translate_element'></div>
+            <button onClick={() => setDarkMode(!darkMode)}>
+              {darkMode ? '☀️' : '🌑'}
+            </button>
           </div>
-        </div>
-        <div className='flex absolute left-2 top-2'>
-          <button onClick={() => setDarkMode(!darkMode)}>
-            {darkMode ? '☀️' : '🌑'}
-          </button>
-          <button>
-            <img width='20px' src="@/public/img/world.png" alt="Language Selection" />
-          </button>
-        </div>
-      </menu>
-      <div>
+        </nav>
+      </div>
+      <div className={s.outlet}>
         <Outlet />
       </div>
     </div>

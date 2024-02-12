@@ -1,4 +1,7 @@
-:root {
-    --purple : #731efc;
-    --somberPurple : #4700b9;
+:root{
+    --cyan: #00fffb;
+    --navyBlue: #001826;
+    --lightPurple : #6100fc;
+    --purple : #4c00c6;
+    --somberPurple : #1b0d32;
 }

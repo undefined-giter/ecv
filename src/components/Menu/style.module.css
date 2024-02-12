@@ -1,26 +1,55 @@
+.menuContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    justify-content: center;
+    user-select: none;
+}
+
 .menu {
     display: flex;
-    justify-content: flex-end;
-    width: 110px;
-    color: var(--text);
-    font-family: 'Playfair Display', serif;
-}
-
-.nav ul {
-    list-style: none;
-    flex-direction: column;
-    border-radius: 1em;
-    background: var(--somberPurple);
-    overflow: hidden;
-}
-
-.nav li {
-    cursor: pointer;
+    justify-content: center;
     text-transform: uppercase;
+    padding: 5px;
+}
+
+.menu ul{background: var(--somberPurple);}
+
+.menu > li {
+    display: inline-block;
+    padding: 0 6px;
+    font-weight: 900;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.gray{
+    color: darkgrey;
+    margin: 0 6px; 
 }
 
 .active{
     background: var(--purple);
+    color: var(--cyan);
 }
 
-nav:not(.active){background: var(--somberPurple)}
+.dark_menu .active{
+    color: var(--somberPurple);
+    background-color: var(--cyan);
+    border-radius: 1em;
+}
+.dark_menu:not(.active){color: var(--cyan);}
+
+.light_menu .active{color: var(--cyan); border-radius: 1em;}
+.light_menu:not(.active){color: var(--lightPurple);}
+
+.btnLang{
+    width: 20px;
+    cursor: pointer;
+    margin-top: 4px;
+}
+
+.outlet{
+    margin-top: 30px;
+}
