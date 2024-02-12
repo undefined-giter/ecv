@@ -3,11 +3,12 @@ import { Outlet, useNavigate, useLocation } from "react-router-dom";
 import s from "./style.module.css";
 
 export  default function Menu(){
+
+  const MENU_WIDTH = 768
   const navigate = useNavigate();
   const location = useLocation();
 
   const [darkMode, setDarkMode] = useState(true)
-
 
   useEffect(() => {
     const htmlElement = document.querySelector('html')
@@ -36,20 +37,20 @@ export  default function Menu(){
     document.head.appendChild(link)
   }
   
-  const [imgShown, setImgShown] = useState(true)
+  const [imgLangShown, setimgLangShown] = useState(true)
   const switchImgInput = ()=>{
-    setImgShown(!imgShown)
+    setimgLangShown(!imgLangShown)
 
     googleTranslateElementInit();
   }
 
 
-  const [widthMenu, setWidthMenu] = useState(window.innerWidth >= 600 && window.screen.width >= 600);
-  const [menuBurgerDeployed, setMenuBurgerDeployed] = useState(false);
+  const [widthMenu, setWidthMenu] = useState(window.innerWidth >= MENU_WIDTH && window.screen.width >= MENU_WIDTH);
+  const [verticalMenu, setVerticalMenu] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
-      setWidthMenu(window.innerWidth >= 600 && window.screen.width >= 600)
+      setWidthMenu(window.innerWidth >= MENU_WIDTH && window.screen.width >= MENU_WIDTH)
     };
 
     window.addEventListener("resize", handleResize)
@@ -58,25 +59,27 @@ export  default function Menu(){
 
   const toggleMenu = () =>{setMenuBurgerDeployed(!menuBurgerDeployed)}
 
+  const separator = widthMenu ? <span className={s.gray}>|</span> : ''
 
   return (
     <div>
       <div className={s.menuContainer}>
-        <nav>
-          <ul className={`${s.menu} ${darkMode ? s.dark_menu : s.light_menu}`}>
-            <li onClick={() => {navigate("/"); toggleMenu()}} className={location.pathname === "/" ? s.active : ""}>Présentation</li><span className={s.gray}>|</span>
-            <li onClick={() => {navigate("/Curriculum"); toggleMenu()}} className={location.pathname === "/Curriculum" ? s.active : ""}>Curriculum</li><span className={s.gray}>|</span>
-            <li onClick={() => {navigate("/Objectif"); toggleMenu()}} className={location.pathname === "/Objectif" ? s.active : ""}>Mon Objectif</li><span className={s.gray}>|</span>
-            <li onClick={() => {navigate("/Realisations"); toggleMenu()}} className={location.pathname === "/Realisations" ? s.active : ""}>Réalisations</li><span className={s.gray}>|</span>
+        <nav className={`${darkMode ? s.dark_menu : s.light_menu}`}>
+          {!widthMenu && <img onClick={() => setVerticalMenu(!verticalMenu)} src='/img/menu_burger.svg' width='40px' />}
+          <ul className={`${s.menu} ${widthMenu ? s.burger_closed : s.menu_burger} ${verticalMenu ? s.burger_open : ''}`}>
+            <li onClick={() => {navigate("/"); toggleMenu()}} className={location.pathname === "/" ? s.active : ""}>Présentation</li>{separator}
+            <li onClick={() => {navigate("/Curriculum"); toggleMenu()}} className={location.pathname === "/Curriculum" ? s.active : ""}>Curriculum</li>{separator}
+            <li onClick={() => {navigate("/Objectif"); toggleMenu()}} className={location.pathname === "/Objectif" ? s.active : ""}>Mon Objectif</li>{separator}
+            <li onClick={() => {navigate("/Realisations"); toggleMenu()}} className={location.pathname === "/Realisations" ? s.active : ""}>Réalisations</li>{separator}
             <li onClick={() => {navigate("/Hobbys"); toggleMenu()}} className={location.pathname === "/Hobbys" ? s.active : ""}>Hobbys</li>
           </ul>
           <div className='flex absolute right-1 top-1'>
-            {imgShown && <button onClick={switchImgInput} className={s.btnLang}>
-                <img src="img/world.png" alt="Language Selection" />
+            {imgLangShown && <button onClick={switchImgInput} className={s.btnLang}>
+                <img src="img/world.png" alt="Language Selection" title='Choose Language' />
               </button>
             }
             <div id='google_translate_element'></div>
-            <button onClick={() => setDarkMode(!darkMode)}>
+            <button onClick={() => setDarkMode(!darkMode)} className="outline-none">
               {darkMode ? '☀️' : '🌑'}
             </button>
           </div>
