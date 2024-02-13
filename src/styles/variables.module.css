@@ -1,5 +1,20 @@
 :root{
     --cyan: #00fffb;
     --navyBlue: #001826;
-    --purple : #4700b9;
+
+    --blue-light : #2100a7;
+    --blue-dark: #140066;
+    --blue: var(--blue-light);
+}
+
+.dark{
+    background-color: var(--navyBlue);
+    color: var(--cyan);
+    --blue: var(--blue-dark);
+}
+
+.light{
+    background-color: var(--cyan);
+    color: var(--navyBlue);
+    --blue: var(--blue-light);
 }

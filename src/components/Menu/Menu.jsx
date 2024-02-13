@@ -46,7 +46,7 @@ export  default function Menu(){
 
 
   const [widthMenu, setWidthMenu] = useState(window.innerWidth >= MENU_WIDTH && window.screen.width >= MENU_WIDTH);
-  const [verticalMenu, setVerticalMenu] = useState(false);
+  const [menuBurgerDeployed, setMenuBurgerDeployed] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -61,17 +61,18 @@ export  default function Menu(){
 
   const separator = widthMenu ? <span className={s.gray}>|</span> : ''
 
-  return (
+  return(
     <div>
       <div className={s.menuContainer}>
         <nav className={`${darkMode ? s.dark_menu : s.light_menu}`}>
-          {!widthMenu && <img onClick={() => setVerticalMenu(!verticalMenu)} src='/img/menu_burger.svg' width='40px' />}
-          <ul className={`${s.menu} ${widthMenu ? s.burger_closed : s.menu_burger} ${verticalMenu ? s.burger_open : ''}`}>
-            <li onClick={() => {navigate("/"); toggleMenu()}} className={location.pathname === "/" ? s.active : ""}>Présentation</li>{separator}
-            <li onClick={() => {navigate("/Curriculum"); toggleMenu()}} className={location.pathname === "/Curriculum" ? s.active : ""}>Curriculum</li>{separator}
-            <li onClick={() => {navigate("/Objectif"); toggleMenu()}} className={location.pathname === "/Objectif" ? s.active : ""}>Mon Objectif</li>{separator}
-            <li onClick={() => {navigate("/Realisations"); toggleMenu()}} className={location.pathname === "/Realisations" ? s.active : ""}>Réalisations</li>{separator}
-            <li onClick={() => {navigate("/Hobbys"); toggleMenu()}} className={location.pathname === "/Hobbys" ? s.active : ""}>Hobbys</li>
+          {!widthMenu && !darkMode && <img onClick={() => setMenuBurgerDeployed(!menuBurgerDeployed)} src='/img/menu_burger.svg' width='40px' className={s.svg} />}
+          {!widthMenu && darkMode && <img onClick={() => setMenuBurgerDeployed(!menuBurgerDeployed)} src='/img/menu_burger_cyan.svg' width='40px' className={s.svg} />}
+          <ul className={`${s.menu} ${widthMenu ? '' : s.menu_burger} ${menuBurgerDeployed && !widthMenu ? `${s.burger_open} ${!darkMode && s.light_deployed}` : ''}`}>
+            <li onClick={() => {navigate("/"); toggleMenu()}} className={`${location.pathname === "/" ? s.active : ""}`}>Présentation</li>{separator}
+            <li onClick={() => {navigate("/Curriculum"); toggleMenu()}} className={`${location.pathname === "/Curriculum" ? s.active : ""}`}>Curriculum</li>{separator}
+            <li onClick={() => {navigate("/Objectif"); toggleMenu()}} className={`${location.pathname === "/Objectif" ? s.active : ""}`}>Mon Objectif</li>{separator}
+            <li onClick={() => {navigate("/Realisations"); toggleMenu()}} className={`${location.pathname === "/Realisations" ? s.active : ""}`}>Réalisations</li>{separator}
+            <li onClick={() => {navigate("/Hobbys"); toggleMenu()}} className={`${location.pathname === "/Hobbys" ? s.active : ""}`}>Hobbys</li>
           </ul>
           <div className='flex absolute right-1 top-1'>
             {imgLangShown && <button onClick={switchImgInput} className={s.btnLang}>

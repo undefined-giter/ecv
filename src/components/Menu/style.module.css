@@ -1,23 +1,21 @@
-.menuContainer {
+.menuContainer{
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    justify-content: center;
     user-select: none;
 }
 
-.menu {
+.menu{
+    display: flex;
     text-transform: uppercase;
-    list-style: none;
     padding: 0;
     margin: 0;
-    display: flex;
+    list-style: none;
     justify-content: center;
-    align-items: center;
 }
 
-.menu > li {
+.menu > li{
     display: inline-block;
     padding: 0 6px;
     font-weight: 900;
@@ -25,28 +23,35 @@
     white-space: nowrap;
 }
 
-.gray {
+.svg{
+    cursor: pointer;
+}
+
+.gray{
     color: darkgrey;
     margin: 0 6px;
 }
 
-.active {
-    border-radius: 1em;
-}
+.active{border-radius: 1em;}
 
-.dark_menu .active {
+.dark_menu .active{
     color: var(--navyBlue);
     background-color: var(--cyan);
 }
 .dark_menu:not(.active){color: var(--cyan);}
 
-.light_menu .active {
+.light_menu .active{
     color: var(--cyan);
     background-color: var(--navyBlue);
 }
-.light_menu:not(.active){color: red;}
+.light_menu:not(.active){color: var(--navyBlue);}
 
-.btnLang {
+.light_deployed{
+    color: var(--navyBlue) !important;
+    background-color: var(--cyan) !important;
+}
+
+.btnLang{
     width: 20px;
     cursor: pointer;
     margin-top: 4px;
@@ -54,7 +59,7 @@
 
 .outlet{margin-top: 30px;}
 
-.menu_burger {
+.menu_burger{
     display: none;
     position: absolute;
     top: 100%;
@@ -62,8 +67,10 @@
     width: 100%;
     background: var(--navyBlue);
     flex-direction: column;
-    align-items: center;
+    width: 140px;
+    margin-left: 4px;
 }
 
-.burger_closed{}
 .burger_open{display: flex;}
+
+.aaa{background-color: var(--blue);}
