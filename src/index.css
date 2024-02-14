@@ -1,7 +1,13 @@
-@import './styles/variables.module.css';
+@import './styles/global.module.css';
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+.html_img{
+    background-image: url('img/bg_original.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
