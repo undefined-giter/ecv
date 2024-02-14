@@ -3,7 +3,7 @@
     --navyBlue: rgb(0, 25, 50);
 
     --blue-light : rgb(0, 0, 255);
-    --blue-dark: rgb(50, 0, 200);
+    --blue-dark: rgb(0, 0, 185);
     --blue: var(--blue-light);
 }
 

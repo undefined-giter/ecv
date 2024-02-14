@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from "react";
-import { Outlet, useNavigate, useLocation } from "react-router-dom";
-import s from "./style.module.css";
+import React, { useState, useEffect } from "react"
+import { Outlet, useNavigate, useLocation } from "react-router-dom"
+import s from "./style.module.css"
 
 export  default function Menu(){
 
-  const thirdUserScreenWidth = window.screen.width / 3;
-  const MENU_WIDTH = Math.max(thirdUserScreenWidth, 767);
-  const navigate = useNavigate();
-  const location = useLocation();
+  const thirdUserScreenWidth = window.screen.width / 3
+  const MENU_WIDTH = Math.max(thirdUserScreenWidth, 767)
+  const navigate = useNavigate()
+  const location = useLocation()
 
   const [darkMode, setDarkMode] = useState(true)
 
@@ -23,7 +23,7 @@ export  default function Menu(){
         htmlElement.classList.remove('dark')
       }
     }
-  }, [darkMode]);
+  }, [darkMode])
 
 
   function googleTranslateElementInit(){
@@ -36,35 +36,45 @@ export  default function Menu(){
     link.rel = 'stylesheet'
     link.href = 'src/components/Menu/googleTrad.css'
     document.head.appendChild(link)
-    document.querySelector('.goog-te-combo').setAttribute('title', 'Choose Language\n 🗣️🌎🌍🌏🤌');
+    document.querySelector('.goog-te-combo').setAttribute('title', 'Choose Language\n 🗣️🌎🌍🌏🤌')
   }
   
   const [imgLangShown, setimgLangShown] = useState(true)
   const switchImgInput = ()=>{
     setimgLangShown(!imgLangShown)
 
-    googleTranslateElementInit();
+    googleTranslateElementInit()
   }
 
 
-  const [widthMenu, setWidthMenu] = useState(window.innerWidth >= MENU_WIDTH && window.screen.width >= MENU_WIDTH);
-  const [menuBurgerDeployed, setMenuBurgerDeployed] = useState(false);
+  const [widthMenu, setWidthMenu] = useState(window.innerWidth >= MENU_WIDTH && window.screen.width >= MENU_WIDTH)
+  const [menuBurgerDeployed, setMenuBurgerDeployed] = useState(false)
 
   useEffect(() => {
     const handleResize = () => {
       setWidthMenu(window.innerWidth >= MENU_WIDTH && window.screen.width >= MENU_WIDTH)
-    };
 
+      setMenuBurgerDeployed(false)
+    }
+    
     window.addEventListener("resize", handleResize)
     return()=>{window.removeEventListener("resize", handleResize)}
-  }, []);
+  }, [])
 
   const toggleMenu = () =>{setMenuBurgerDeployed(!menuBurgerDeployed)}
 
-  const separator = widthMenu ? <span className={s.gray}>|</span> : ''
+  const separator = widthMenu && <span className={s.gray}>|</span>
+
+  useEffect(() => {
+    if(menuBurgerDeployed){
+      const handleClickOutside = ()=>{setMenuBurgerDeployed(false)}
+      setTimeout(()=>{document.addEventListener('click', handleClickOutside)}, 0)
+      return()=>{document.removeEventListener('click', handleClickOutside)}
+    }
+  }, [menuBurgerDeployed])
 
   return(
-    <div>
+    <main>
       <div className={s.menuContainer}>
         <nav className={`${darkMode ? s.dark_menu : s.light_menu}`}>
           {!widthMenu && !darkMode && <img onClick={() => setMenuBurgerDeployed(!menuBurgerDeployed)} src='/img/menu_burger.svg' width='40px' className={s.svg} />}
@@ -79,8 +89,7 @@ export  default function Menu(){
           <div className='flex absolute right-1 top-1'>
             {imgLangShown && <button onClick={switchImgInput} className={s.btnLang}>
                 <img src="img/world.png" alt="Language Selection" title={"Choose Language\n 🗣️🌎🌍🌏🤌"} />
-              </button>
-            }
+            </button>}
             <div id='google_translate_element'></div>
             <button onClick={() => setDarkMode(!darkMode)} className={s.darkModeSwitcher}>
               {darkMode ? '☀️' : '🌑'}
@@ -88,9 +97,9 @@ export  default function Menu(){
           </div>
         </nav>
       </div>
-      <div className={s.outlet}>
+      <div className={widthMenu ? s.outlet : ''}>
         <Outlet />
       </div>
-    </div>
+    </main>
   )
 }

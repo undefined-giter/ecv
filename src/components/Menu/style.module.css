@@ -9,11 +9,10 @@
 .menu{
     display: flex;
     text-transform: uppercase;
-    padding: 0;
-    margin: 0;
     list-style: none;
     justify-content: center;
     z-index: 900;
+    border-radius: 1em;
 }
 
 .menu > li{
@@ -57,28 +56,28 @@
     margin-top: 2px;
 }
 
-.outlet{padding-top: 50px;}
-
 .menu_burger{
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background: var(--navyBlue);
+    width: max-content;
     flex-direction: column;
-    width: 140px;
-    margin-left: 4px;
+    transform: translateX(-150%);
+    transition: transform 0.4s ease;
 }
 
-.burger_open{display: flex;}
+.burger_open{
+    transform: translateX(5%);
+    transition: transform 0.4s ease;
+}
 
 .dark_hover:hover.active{color: var(--blue);}
 .light_hover:hover.active{color: var(--blue);}
-.dark_hover:hover:not(.active){background: rgba(0, 0, 255, 0.33);}
-.light_hover:hover:not(.active){background-color: rgba(50, 0, 200, 0.33);}
+.dark_hover:hover:not(.active){background: rgba(50, 0, 200, 0.33);}
+.light_hover:hover:not(.active){background: rgba(50, 0, 200, 0.33);}
 
 .darkModeSwitcher{
     outline: none;
     font-size: 18px;
 }
+
+h1{text-align: center;}
+
+.outlet{padding-top: 50px;}

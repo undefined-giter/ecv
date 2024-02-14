@@ -17,8 +17,8 @@ function App() {
           <Route path="/Objectif" element={<Objective />} />
           <Route path="/Realisations" element={<Creations />} />
           <Route path="/Hobbys" element={<Hobbies />} />
-          <Route path="*" element={<NotFound />} />
         </Route>
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   )
