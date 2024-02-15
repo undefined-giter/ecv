@@ -4,6 +4,7 @@
     left: 0;
     right: 0;
     user-select: none;
+    z-index: 900;
 }
 
 .menu{
@@ -11,7 +12,6 @@
     text-transform: uppercase;
     list-style: none;
     justify-content: center;
-    z-index: 900;
     border-radius: 1em;
 }
 
@@ -23,7 +23,6 @@
     white-space: nowrap;
     border-radius: 1em;
 }
-
 .svg{cursor: pointer;}
 
 .gray{
@@ -61,11 +60,13 @@
     flex-direction: column;
     transform: translateX(-150%);
     transition: transform 0.4s ease;
+
 }
 
 .burger_open{
     transform: translateX(5%);
     transition: transform 0.4s ease;
+
 }
 
 .dark_hover:hover.active{color: var(--blue);}

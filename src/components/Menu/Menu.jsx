@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react"
 import { Outlet, useNavigate, useLocation } from "react-router-dom"
 import s from "./style.module.css"
+import { useScreen } from '/src/contexts/ScreenContext';
 
-export  default function Menu(){
+export default function Menu(){
 
-  const thirdUserScreenWidth = window.screen.width / 3
-  const MENU_WIDTH = Math.max(thirdUserScreenWidth, 767)
+  const MENU_WIDTH = useScreen()
+  
   const navigate = useNavigate()
   const location = useLocation()
 
@@ -24,7 +25,6 @@ export  default function Menu(){
       }
     }
   }, [darkMode])
-
 
   function googleTranslateElementInit(){
     new google.translate.TranslateElement(
@@ -45,25 +45,13 @@ export  default function Menu(){
 
     googleTranslateElementInit()
   }
+  
 
-
-  const [widthMenu, setWidthMenu] = useState(window.innerWidth >= MENU_WIDTH && window.screen.width >= MENU_WIDTH)
   const [menuBurgerDeployed, setMenuBurgerDeployed] = useState(false)
-
-  useEffect(() => {
-    const handleResize = () => {
-      setWidthMenu(window.innerWidth >= MENU_WIDTH && window.screen.width >= MENU_WIDTH)
-
-      setMenuBurgerDeployed(false)
-    }
-    
-    window.addEventListener("resize", handleResize)
-    return()=>{window.removeEventListener("resize", handleResize)}
-  }, [])
 
   const toggleMenu = () =>{setMenuBurgerDeployed(!menuBurgerDeployed)}
 
-  const separator = widthMenu && <span className={s.gray}>|</span>
+  const separator = MENU_WIDTH && <span className={s.gray}>|</span>
 
   useEffect(() => {
     if(menuBurgerDeployed){
@@ -73,13 +61,17 @@ export  default function Menu(){
     }
   }, [menuBurgerDeployed])
 
+  useEffect(() =>{
+    setMenuBurgerDeployed(false)
+  }, [MENU_WIDTH])
+  
   return(
     <main>
       <div className={s.menuContainer}>
         <nav className={`${darkMode ? s.dark_menu : s.light_menu}`}>
-          {!widthMenu && !darkMode && <img onClick={() => setMenuBurgerDeployed(!menuBurgerDeployed)} src='/img/menu_burger.svg' width='40px' className={s.svg} />}
-          {!widthMenu && darkMode && <img onClick={() => setMenuBurgerDeployed(!menuBurgerDeployed)} src='/img/menu_burger_cyan.svg' width='40px' className={s.svg} />}
-          <ul className={`${s.menu} ${widthMenu ? '' : s.menu_burger} ${menuBurgerDeployed && !widthMenu ? `${s.burger_open} ${!darkMode && s.light_deployed}` : ''}`}>
+          {!MENU_WIDTH && !darkMode && <img onClick={() => setMenuBurgerDeployed(!menuBurgerDeployed)} src='/img/menu_burger.svg' width='40px' className={s.svg} />}
+          {!MENU_WIDTH && darkMode && <img onClick={() => setMenuBurgerDeployed(!menuBurgerDeployed)} src='/img/menu_burger_cyan.svg' width='40px' className={s.svg} />}
+          <ul className={`${s.menu} ${MENU_WIDTH ? '' : s.menu_burger} ${menuBurgerDeployed && !MENU_WIDTH ? `${s.burger_open} ${!darkMode && s.light_deployed}` : ''}`}>
             <li onClick={() => {navigate("/"); toggleMenu()}} className={`${location.pathname === "/" ? s.active : ""} ${darkMode ? s.dark_hover : s.light_hover}`}>Présentation</li>{separator}
             <li onClick={() => {navigate("/Curriculum"); toggleMenu()}} className={`${location.pathname === "/Curriculum" ? s.active : ""} ${darkMode ? s.dark_hover : s.light_hover}`}>Curriculum</li>{separator}
             <li onClick={() => {navigate("/Objectif"); toggleMenu()}} className={`${location.pathname === "/Objectif" ? s.active : ""} ${darkMode ? s.dark_hover : s.light_hover}`}>Mon Objectif</li>{separator}
@@ -97,7 +89,7 @@ export  default function Menu(){
           </div>
         </nav>
       </div>
-      <div className={widthMenu ? s.outlet : ''}>
+      <div className={MENU_WIDTH ? s.outlet : ''}>
         <Outlet />
       </div>
     </main>
