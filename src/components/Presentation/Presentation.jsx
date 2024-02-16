@@ -1,21 +1,33 @@
-import { useState, useEffect } from 'react'
-import s from './style.module.css'
-import { useScreen } from '/src/contexts/ScreenContext'
 import 'animate.css'
+import s from './style.module.css'
+import { useState, useEffect } from 'react'
+import { useScreen } from '/src/contexts/ScreenContext'
+import { useDarkMode } from '/src/contexts/DarkModeContext';
+import { useVisited } from '/src/contexts/VisitedContext';
 
 
 export default function Presentation() {
 
   const SCREEN_WIDTH = useScreen();
-
+  const { darkMode } = useDarkMode()
+  const { presentationHasBeenVisited, setPresentationHasBeenVisited, otherPageHasBeenVisited } = useVisited()
+  
+  const contact = "N'hésitez pas à me <a href='#contact'><b>contacter</b><small>⤵️</small></a>"
+  
   const [welcome, setWelcome] = useState(' ')
   const txt = 'Bienvenue sur mon eCV !'
-  
+
   useEffect(() => {
     const welcomeInterval = setInterval(()=>{
       if(welcome.length < txt.length){
-        setWelcome(prevTxt => txt.substring(0, prevTxt.length +1))}
-      else{clearInterval(welcomeInterval)}
+        setWelcome(prevTxt => txt.substring(0, prevTxt.length +1))
+      }
+      else{
+        clearInterval(welcomeInterval)
+        setTimeout(()=>{
+          setPresentationHasBeenVisited(true)
+        }, 5000)
+      }
     }, 60)
 
     return ()=>clearInterval(welcomeInterval)
@@ -41,28 +53,29 @@ export default function Presentation() {
     const cvTimeout = setTimeout(()=>{addAnimationClasses(cv)}, 3600)
     const lmTimeout = setTimeout(()=>{addAnimationClasses(lm)}, SCREEN_WIDTH ? 3800 : 3600)
   
-    return()=>{clearTimeout(cvTimeout);clearTimeout(lmTimeout)}
+    return()=>{clearTimeout(cvTimeout);clearTimeout(lmTimeout);}
   }, [])
 
   return (
     <div className='text-center'>
-      <h1>{welcome}</h1>
+      <h1>{presentationHasBeenVisited & otherPageHasBeenVisited ? <div dangerouslySetInnerHTML={{ __html: contact }} /> : welcome}</h1>
+      
 
-      <div className="mt-12">
+      <div className="mt-8">
         {!ProfileImage && <div style={{ height:'120px', textAlign:'center', paddingTop:'45px' }}>Chargement🔎</div>}
         <div className={`${s.hide} ${imageLoaded ? s.fade_in : ''}`}>
           {ProfileImage && <ProfileImage />}
         </div>
-        <h2 className={s.my_name}>Léo RIPERT</h2>
-        <p className={s.job_title}>Développeur Junior</p>
+        <h2 className={`${s.my_name} ${!darkMode ? s.my_name_light : ''}`}>Léo RIPERT</h2>
+        <p className={s.job_title}>Développeur Web</p>
       </div>
       
       <div className={`flex mt-2 ${SCREEN_WIDTH ? 'flex-row items-center justify-center' : 'flex-col items-center justify-center'}`}>
-        <a href="/docs/CV_RIPERTLéo_Développeur.pdf" target="_blank" className={s.docs} id="cv">Télécharger CV</a>
-        <a href="/docs/LM_RIPERTLéo_Développeur.pdf" target="_blank" className={`${s.docs} ${!SCREEN_WIDTH ? 'mt-2' : ''}`} id="lm" >Télécharger LM</a>
+        <a href="/docs/CV_RIPERTLéo_Développeur.pdf" target="_blank" className={`${s.docs} ${!darkMode ? s.docs_light : ''}`} id="cv">Télécharger CV</a>
+        <a href="/docs/LM_RIPERTLéo_Développeur.pdf" target="_blank" className={`${s.docs} ${!darkMode ? s.docs_light : ''} ${!SCREEN_WIDTH ? 'mt-2' : ''}`} id="lm" >Télécharger LM</a>
       </div>
-
-
+      
+      <div id='contact'></div>
     </div>
   )
 }

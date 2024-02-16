@@ -4,11 +4,13 @@
     animation-name: slideName;
     font-family: serif;
     font-weight: 600;
-    -webkit-text-stroke-width: 0.5px;
-    -webkit-text-stroke-color: var(--blue);
+    -webkit-text-stroke-width: 0.25px;
+    -webkit-text-stroke-color: var(--cyan);
+    color: var(--blue);
     overflow-x: hidden;
     white-space: nowrap;
 }
+.my_name_light{-webkit-text-stroke-color: var(--navyBlue);}
 @keyframes slideName{
     0%{
         margin-left: 200%;
@@ -57,6 +59,8 @@
     text-decoration: none;
     transition: all 0.3s ease-in 0s;
 }
+
+.docs_light:hover{background-clip: text;}
 
 
 /* ProfilImg */

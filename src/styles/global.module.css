@@ -4,17 +4,17 @@
 
     --blue-light : rgb(0, 0, 255);
     --blue-dark: rgb(0, 0, 185);
-    --blue: var(--blue-light);
+    --blue: var(--blue-dark);
 }
 
 .dark{
     background-color: var(--navyBlue);
     color: var(--cyan);
-    --blue: var(--blue-dark);
+    --blue: var(--blue-light);
 }
 
 .light{
     background-color: var(--cyan);
     color: var(--navyBlue);
-    --blue: var(--blue-light);
+    --blue: var(--blue-dark);
 }

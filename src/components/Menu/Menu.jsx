@@ -2,29 +2,15 @@ import React, { useState, useEffect } from "react"
 import { Outlet, useNavigate, useLocation } from "react-router-dom"
 import s from "./style.module.css"
 import { useScreen } from '/src/contexts/ScreenContext';
+import { useDarkMode } from '/src/contexts/DarkModeContext';
 
 export default function Menu(){
 
   const MENU_WIDTH = useScreen()
+  const { darkMode, toggleDarkMode } = useDarkMode()
   
   const navigate = useNavigate()
   const location = useLocation()
-
-  const [darkMode, setDarkMode] = useState(true)
-
-  useEffect(() => {
-    const htmlElement = document.querySelector('html')
-    if (htmlElement) {
-      if (darkMode) { 
-        htmlElement.classList.add('dark')
-        htmlElement.classList.remove('light')
-      }
-      else {
-        htmlElement.classList.add('light')
-        htmlElement.classList.remove('dark')
-      }
-    }
-  }, [darkMode])
 
   function googleTranslateElementInit(){
     new google.translate.TranslateElement(
@@ -83,7 +69,7 @@ export default function Menu(){
                 <img src="img/world.png" alt="Language Selection" title={"Choose Language\n 🗣️🌎🌍🌏🤌"} />
             </button>}
             <div id='google_translate_element'></div>
-            <button onClick={() => setDarkMode(!darkMode)} className={s.darkModeSwitcher}>
+            <button onClick={toggleDarkMode} className={s.darkModeSwitcher}>
               {darkMode ? '☀️' : '🌑'}
             </button>
           </div>
