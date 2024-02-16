@@ -5,16 +5,24 @@
     --blue-light : rgb(0, 0, 255);
     --blue-dark: rgb(0, 0, 185);
     --blue: var(--blue-dark);
+
+    --green-light : rgb(0, 255, 0);
+    --green-dark: rgb(0, 180, 0);
+    --green: var(--blue-dark);
+
+    --grey: var(50, 50, 50);
 }
 
 .dark{
     background-color: var(--navyBlue);
     color: var(--cyan);
     --blue: var(--blue-light);
+    --green: var(--green-light);
 }
 
 .light{
     background-color: var(--cyan);
     color: var(--navyBlue);
     --blue: var(--blue-dark);
+    --green: var(--green-dark);
 }

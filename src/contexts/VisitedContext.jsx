@@ -7,9 +7,10 @@ export const useVisited = () => useContext(VisitedContext)
 export const VisitedProvider = ({ children }) => {
   const [presentationHasBeenVisited, setPresentationHasBeenVisited] = useState(false)
   const [otherPageHasBeenVisited, setOtherPageHasBeenVisited] = useState(false)
+  const [welcomeDoneOnce, setWelcomeDoneOnce] = useState(false)
 
   return (
-    <VisitedContext.Provider value={{ presentationHasBeenVisited, setPresentationHasBeenVisited, otherPageHasBeenVisited, setOtherPageHasBeenVisited }}>
+    <VisitedContext.Provider value={{ welcomeDoneOnce, setWelcomeDoneOnce, presentationHasBeenVisited, setPresentationHasBeenVisited, otherPageHasBeenVisited, setOtherPageHasBeenVisited }}>
       {children}
     </VisitedContext.Provider>
   )

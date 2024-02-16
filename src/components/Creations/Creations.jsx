@@ -1,6 +1,6 @@
 export default function Creations() {
-  
+
   return (
-    <div>Creations</div>
+    <div>Quelques Projets / parmis bien d'autres...</div>
   )
 }

@@ -1,3 +1,13 @@
+.img_div{
+    width: 120px;
+    height: 120px;
+}
+.hide{opacity: 0}
+.fade_in {
+    opacity: 1;
+    transition: opacity 5s;
+}
+
 .my_name{
     font-size: 25px;
     animation-duration: 3s;
@@ -55,21 +65,9 @@
     border: 2px solid white;
     background: var(--cyan);
     border-radius: 12px;
-    color: var(--blue); 
+    color: var(--blue);
     text-decoration: none;
     transition: all 0.3s ease-in 0s;
 }
 
 .docs_light:hover{background-clip: text;}
-
-
-/* ProfilImg */
-.img_div{
-    width: 120px;
-    height: 120px;
-}
-.hide{opacity: 0}
-.fade_in {
-    opacity: 1;
-    transition: opacity 5s;
-}

@@ -4,13 +4,14 @@ import { useState, useEffect } from 'react'
 import { useScreen } from '/src/contexts/ScreenContext'
 import { useDarkMode } from '/src/contexts/DarkModeContext';
 import { useVisited } from '/src/contexts/VisitedContext';
+import Contact from './Contact.jsx'
 
 
-export default function Presentation() {
+export default function Presentation(){
 
   const SCREEN_WIDTH = useScreen();
   const { darkMode } = useDarkMode()
-  const { presentationHasBeenVisited, setPresentationHasBeenVisited, otherPageHasBeenVisited } = useVisited()
+  const { welcomeDoneOnce, setWelcomeDoneOnce, presentationHasBeenVisited, setPresentationHasBeenVisited, otherPageHasBeenVisited } = useVisited()
   
   const contact = "N'hésitez pas à me <a href='#contact'><b>contacter</b><small>⤵️</small></a>"
   
@@ -19,11 +20,11 @@ export default function Presentation() {
 
   useEffect(() => {
     const welcomeInterval = setInterval(()=>{
-      if(welcome.length < txt.length){
-        setWelcome(prevTxt => txt.substring(0, prevTxt.length +1))
-      }
+      if(welcome.length < txt.length & !welcomeDoneOnce){
+        setWelcome(prevTxt => txt.substring(0, prevTxt.length +1))}
       else{
         clearInterval(welcomeInterval)
+        setWelcomeDoneOnce(true)
         setTimeout(()=>{
           setPresentationHasBeenVisited(true)
         }, 5000)
@@ -58,8 +59,7 @@ export default function Presentation() {
 
   return (
     <div className='text-center'>
-      <h1>{presentationHasBeenVisited & otherPageHasBeenVisited ? <div dangerouslySetInnerHTML={{ __html: contact }} /> : welcome}</h1>
-      
+      <div>{presentationHasBeenVisited & otherPageHasBeenVisited ? <p dangerouslySetInnerHTML={{ __html: contact }} /> : !presentationHasBeenVisited & welcomeDoneOnce ? <p>{txt}</p> : <p>{welcome}</p>}</div>
 
       <div className="mt-8">
         {!ProfileImage && <div style={{ height:'120px', textAlign:'center', paddingTop:'45px' }}>Chargement🔎</div>}
@@ -74,8 +74,10 @@ export default function Presentation() {
         <a href="/docs/CV_RIPERTLéo_Développeur.pdf" target="_blank" className={`${s.docs} ${!darkMode ? s.docs_light : ''}`} id="cv">Télécharger CV</a>
         <a href="/docs/LM_RIPERTLéo_Développeur.pdf" target="_blank" className={`${s.docs} ${!darkMode ? s.docs_light : ''} ${!SCREEN_WIDTH ? 'mt-2' : ''}`} id="lm" >Télécharger LM</a>
       </div>
-      
-      <div id='contact'></div>
+      <br />
+      <div id='contact'>
+        <Contact />
+      </div>
     </div>
   )
 }
