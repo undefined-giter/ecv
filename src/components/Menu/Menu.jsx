@@ -1,8 +1,8 @@
+import s from "./style.module.css"
 import React, { useState, useEffect } from "react"
 import { Outlet, useNavigate, useLocation } from "react-router-dom"
-import s from "./style.module.css"
-import { useScreen } from '/src/contexts/ScreenContext';
-import { useDarkMode } from '/src/contexts/DarkModeContext';
+import { useScreen } from '/src/contexts/ScreenContext'
+import { useDarkMode } from '/src/contexts/DarkModeContext'
 
 export default function Menu(){
 

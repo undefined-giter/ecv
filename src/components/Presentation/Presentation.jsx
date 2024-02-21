@@ -2,13 +2,13 @@ import 'animate.css'
 import s from './style.module.css'
 import { useState, useEffect } from 'react'
 import { useScreen } from '/src/contexts/ScreenContext'
-import { useDarkMode } from '/src/contexts/DarkModeContext';
-import { useVisited } from '/src/contexts/VisitedContext';
+import { useDarkMode } from '/src/contexts/DarkModeContext'
+import { useVisited } from '/src/contexts/VisitedContext'
 import Contact from './Contact.jsx'
 
 
 export default function Presentation(){
-
+  
   const SCREEN_WIDTH = useScreen();
   const { darkMode } = useDarkMode()
   const { welcomeDoneOnce, setWelcomeDoneOnce, presentationHasBeenVisited, setPresentationHasBeenVisited, otherPageHasBeenVisited } = useVisited()
@@ -59,7 +59,7 @@ export default function Presentation(){
 
   return (
     <div className='text-center'>
-      <div>{presentationHasBeenVisited & otherPageHasBeenVisited ? <p dangerouslySetInnerHTML={{ __html: contact }} /> : !presentationHasBeenVisited & welcomeDoneOnce ? <p>{txt}</p> : <p>{welcome}</p>}</div>
+      <div style={{ display: 'inline-block' }}>{presentationHasBeenVisited & otherPageHasBeenVisited ? <div style={{position:'relative', zIndex:970, width:'content'}} dangerouslySetInnerHTML={{ __html: contact }} /> : !presentationHasBeenVisited & welcomeDoneOnce ? <p>{txt}</p> : <p>{welcome}</p>}</div>
 
       <div className="mt-8">
         {!ProfileImage && <div style={{ height:'120px', textAlign:'center', paddingTop:'45px' }}>Chargement🔎</div>}

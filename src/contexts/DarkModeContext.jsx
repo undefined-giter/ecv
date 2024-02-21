@@ -9,6 +9,7 @@ export const DarkModeProvider = ({ children }) => {
 
   useEffect(() => {
     const htmlElement = document.querySelector('html')
+    
     if (htmlElement) {
       if(darkMode){
         htmlElement.classList.add('dark')
@@ -18,6 +19,13 @@ export const DarkModeProvider = ({ children }) => {
         htmlElement.classList.remove('dark')
       }
     }
+
+    const favicon = document.querySelector('link[rel="icon"]')
+    if(favicon){
+      const faviconPath = darkMode ? '/favicon-dark.ico' : '/favicon-light.ico'
+      favicon.href = faviconPath
+    }
+
   }, [darkMode])
 
   const toggleDarkMode = ()=>{setDarkMode(prevMode => !prevMode)}

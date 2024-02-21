@@ -5,8 +5,15 @@
 @tailwind components;
 @tailwind utilities;
 
-.html_img{
-    background-image: url('img/bg_original.jpg');
+.bg_curriculum{
+    background-image: linear-gradient(rgba(255, 255, 255, 0), var(--blue));
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.bg_hobbies{
+    background-image: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.2)), url('img/bg/hobbies.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
