@@ -1,8 +1,10 @@
+import { useEffect } from 'react'
 import { useVisited } from '/src/contexts/VisitedContext'
 
 export default function Objective(){
   const { setOtherPageHasBeenVisited } = useVisited()
-  setOtherPageHasBeenVisited(true)
+  
+  useEffect(()=>{setOtherPageHasBeenVisited(true)}, [setOtherPageHasBeenVisited])
 
   return(
     <div>Objectif</div>

@@ -121,35 +121,34 @@ export default function Contact(){
         else{setMessageLongEnough(false)}
     }
 
-    return (<div>
-                <div className={`${darkMode} ${s.formContact}`}>
-                    {mailSent && <div ref={mailSentRef} className={`${s.mailSent} ${mailDivDesapear ? s.hide : ""}`}>Votre demande a étée envoyée</div>}
-                    {mailSent === false && <div ref={mailSentRef} className={`${s.mailNotSend} ${mailDivDesapear ? s.hide : ""}`}>Votre demande n'a pas pu aboutir !<br />Si l'erreur persiste,veuillez nous contacter par téléphone.</div>}
+    return(<div className={`${darkMode} ${s.formContact}`}>
+                {mailSent && <div ref={mailSentRef} className={`${s.mailSent} ${mailDivDesapear ? s.hide : ""}`}>Votre demande a étée envoyée</div>}
+                {mailSent === false && <div ref={mailSentRef} className={`${s.mailNotSend} ${mailDivDesapear ? s.hide : ""}`}>Votre demande n'a pas pu aboutir !<br />Si l'erreur persiste,veuillez nous contacter par téléphone.</div>}
+                
+                <form onSubmit={ e =>sendMail(e)} className={s.form} ref={formRef} noValidate>
+                    <label htmlFor="username">Nom</label>
+                    <input name="username" type="text" minLength="2" maxLength="50" className={`mb-2 ${s.username} ${nameIstLongEnough && s.inputOkay} ${nameLongEnough === false && s.inputNotOkay}`} onChange={ e => checkUsername(e.target.value)} onBlur={ e => checkUsernameOut(e.target.value)} />
+                    {!nameLongEnough && nameLongEnough !== null && <p className={s.errorP}>Entre 2 et 50 caractères requis</p>}
                     
-                    <form onSubmit={ e =>sendMail(e)} className={s.form} ref={formRef} noValidate>
-                        <label htmlFor="username">Nom</label>
-                        <input name="username" type="text" minLength="2" maxLength="50" className={`mb-2 ${s.username} ${nameIstLongEnough && s.inputOkay} ${nameLongEnough === false && s.inputNotOkay}`} onChange={ e => checkUsername(e.target.value)} onBlur={ e => checkUsernameOut(e.target.value)} />
-                        {!nameLongEnough && nameLongEnough !== null && <p className={s.errorP}>Entre 2 et 50 caractères requis</p>}
-                        
-                        <label htmlFor="email">Email</label>
-                        <input name="email" type="text" id='email' className={`mb-2 ${emailIsValid && s.inputOkay} ${emailValid === false && s.inputNotOkay}`} onChange={ e => checkEmail(e.target.value)} onBlur={ e => checkEmailOut(e.target.value)} />
-                        {!emailValid && emailValid !== null && <p className={s.errorP}>Format attendu : 'exemple@gmail.com'</p>}
+                    <label htmlFor="email">Email</label>
+                    <input name="email" type="text" id='email' className={`mb-2 ${emailIsValid && s.inputOkay} ${emailValid === false && s.inputNotOkay}`} onChange={ e => checkEmail(e.target.value)} onBlur={ e => checkEmailOut(e.target.value)} />
+                    {!emailValid && emailValid !== null && <p className={s.errorP}>Format attendu : 'exemple@gmail.com'</p>}
 
-                        <label htmlFor="message">Message</label>
-                        <textarea name="message" rows="2" minLength="15" maxLength="500" id={messageLengthOk && 'message'} className={`${messageLengthOk && s.inputOkay} ${messageLongEnough === false && s.inputNotOkay}`} onChange={ e => checkMessage(e.target.value)} onBlur={ e => checkMessageOut(e.target.value)} title='Veuillez décrire votre demande : entre 15 et 500 caractères' style={{outline:'none'}} />
-                        {!messageLongEnough && messageLongEnough !== null && <p className={`${s.errorP} ${s.errorMessage}`}>Décrivez votre demande: min 15 caractères</p>}
-                        
+                    <label htmlFor="message">Message</label>
+                    <textarea name="message" rows="2" minLength="15" maxLength="500" id={messageLengthOk && 'message'} className={`${messageLengthOk && s.inputOkay} ${messageLongEnough === false && s.inputNotOkay}`} onChange={ e => checkMessage(e.target.value)} onBlur={ e => checkMessageOut(e.target.value)} title='Veuillez décrire votre demande : entre 15 et 500 caractères' style={{outline:'none'}} />
+                    {!messageLongEnough && messageLongEnough !== null && <p className={`${s.errorP} ${s.errorMessage}`}>Décrivez votre demande: min 15 caractères</p>}
+                    
 
-                        {/* <label htmlFor="file">Image <span>optionnel, 500kb max.</span></label>
-                        <input type="file" name='file' /> */}
-                        <div style={{position: 'relative'}}>
-                            <ReCAPTCHA ref={ el => captchaRef.current = el} sitekey="6Ld6ZJAnAAAAAIriI7n7-n1H2P-juUxP17QAyV8n" onChange={handleCaptchaVerification} style={{transform: 'scale(0.74) translateX(-38.5px)'}} />
-                            <div id='aroundLine' className={s.aroundLine}></div>
-                        </div>
-                        <button type='submit' className={`${s.btn} ${sendingMail ? `` : inputsFormOk ? `` : `${s.deactivatedBtn}`}`} style={{fontFamily: 'initial'}} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} id='sendBtn' >
-                            {sendingMail ? 'Envoie en cours' : errorSendingMail ? 'Echec de l\'envoie' : inputsFormOk ? 'ENVOYER VOTRE DEMANDE' : buttonText}
-                        </button>
-                    </form>
-                </div>
-            </div>)
+                    {/* <label htmlFor="file">Image <span>optionnel, 500kb max.</span></label>
+                    <input type="file" name='file' /> */}
+                    <div style={{position: 'relative'}}>
+                        <ReCAPTCHA ref={ el => captchaRef.current = el} sitekey="6Ld6ZJAnAAAAAIriI7n7-n1H2P-juUxP17QAyV8n" onChange={handleCaptchaVerification} style={{transform: 'scale(0.74) translateX(-38.5px)'}} />
+                        <div id='aroundLine' className={s.aroundLine}></div>
+                    </div>
+                    <button type='submit' className={`${s.btn} ${sendingMail ? `` : inputsFormOk ? `` : `${s.deactivatedBtn}`}`} style={{fontFamily: 'initial'}} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} id='sendBtn' >
+                        {sendingMail ? 'Envoie en cours' : errorSendingMail ? 'Echec de l\'envoie' : inputsFormOk ? 'ENVOYER VOTRE DEMANDE' : buttonText}
+                    </button>
+                </form>
+            </div>
+    )
 }

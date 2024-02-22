@@ -1,16 +1,17 @@
 import 'animate.css'
 import s from './style.module.css'
+import Contact from './Contact.jsx'
 import { useState, useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import { useScreen } from '/src/contexts/ScreenContext'
 import { useDarkMode } from '/src/contexts/DarkModeContext'
 import { useVisited } from '/src/contexts/VisitedContext'
-import Contact from './Contact.jsx'
 
 
 export default function Presentation(){
   
-  const SCREEN_WIDTH = useScreen();
   const { darkMode } = useDarkMode()
+  const { isLargeScreen, scrollToContact } = useScreen()
   const { welcomeDoneOnce, setWelcomeDoneOnce, presentationHasBeenVisited, setPresentationHasBeenVisited, otherPageHasBeenVisited } = useVisited()
   
   const contact = "N'hésitez pas à me <a href='#contact'><b>contacter</b><small>⤵️</small></a>"
@@ -52,10 +53,24 @@ export default function Presentation(){
     const addAnimationClasses = doc => {doc.classList.add('animate__animated', 'animate__bounce')}
     
     const cvTimeout = setTimeout(()=>{addAnimationClasses(cv)}, 3600)
-    const lmTimeout = setTimeout(()=>{addAnimationClasses(lm)}, SCREEN_WIDTH ? 3800 : 3600)
+    const lmTimeout = setTimeout(()=>{addAnimationClasses(lm)}, isLargeScreen ? 3800 : 3600)
   
     return()=>{clearTimeout(cvTimeout);clearTimeout(lmTimeout);}
   }, [])
+
+  const location = useLocation();
+  useEffect(() => {
+    if(location.state?.scrollToContact){
+      const contactSection = document.querySelector('#contact')
+      if(contactSection){  contactSection.scrollIntoView({ behavior:'smooth' })
+      }
+    }
+  }, [location])
+
+  useEffect(() => {
+    if(scrollToContact){document.querySelector('#contact').scrollIntoView()}
+  }, [scrollToContact])
+
 
   return (
     <div className='text-center'>
@@ -68,13 +83,13 @@ export default function Presentation(){
         </div>
         <h2 className={`${s.my_name} ${!darkMode ? s.my_name_light : ''}`}>Léo RIPERT</h2>
         <p className={s.job_title}>Développeur Web</p>
-      </div>
-      
-      <div className={`flex mt-2 ${SCREEN_WIDTH ? 'flex-row items-center justify-center' : 'flex-col items-center justify-center'}`}>
+      </div>      
+      <div className={`flex mt-2 ${isLargeScreen ? 'flex-row items-center justify-center' : 'flex-col items-center justify-center'}`}>
         <a href="/docs/CV_RIPERTLéo_Développeur.pdf" target="_blank" className={`${s.docs} ${!darkMode ? s.docs_light : ''}`} id="cv">Télécharger CV</a>
-        <a href="/docs/LM_RIPERTLéo_Développeur.pdf" target="_blank" className={`${s.docs} ${!darkMode ? s.docs_light : ''} ${!SCREEN_WIDTH ? 'mt-2' : ''}`} id="lm" >Télécharger LM</a>
+        <a href="/docs/LM_RIPERTLéo_Développeur.pdf" target="_blank" className={`${s.docs} ${!darkMode ? s.docs_light : ''} ${!isLargeScreen ? 'mt-2' : ''}`} id="lm" >Télécharger LM</a>
       </div>
       <br />
+      <h2>Envoyez-moi un email</h2>
       <div id='contact'>
         <Contact />
       </div>

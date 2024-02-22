@@ -12,8 +12,10 @@ export const ScreenProvider = ({ children }) => {
     return () => window.removeEventListener("resize", handleResize)
   }, [])
 
+  const [scrollToContact, setScrollToContact] = useState(false)
+
   return (
-    <ScreenContext.Provider value={isLargeScreen}>
+    <ScreenContext.Provider value={{isLargeScreen, scrollToContact, setScrollToContact}}>
       {children}
     </ScreenContext.Provider>
   )

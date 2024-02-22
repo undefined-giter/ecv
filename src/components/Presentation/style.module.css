@@ -8,13 +8,18 @@
     transition: opacity 5s;
 }
 
+.screen{
+    width: 500px;
+    position:static;
+}
+
 .my_name{
     font-size: 25px;
     animation-duration: 3s;
     animation-name: slideName;
     font-family: serif;
-    font-weight: 600;
-    -webkit-text-stroke-width: 0.25px;
+    font-weight: 400;
+    -webkit-text-stroke-width: 0.4px;
     -webkit-text-stroke-color: var(--cyan);
     color: var(--blue);
     overflow-x: hidden;
@@ -32,7 +37,7 @@
 
 .job_title{
     font-size: 1.8em;
-    background-image: linear-gradient(90deg, orange, red, blue, purple);
+    background-image: linear-gradient(90deg, yellow, orange, red, purple);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -55,7 +60,7 @@
     text-transform: uppercase;
     color: white;
     border: 2px solid black;
-    padding: 8px 16px;
+    padding: 8px 12px;
     margin: 0 5px;
     background: var(--blue);
     border-radius: 12px;

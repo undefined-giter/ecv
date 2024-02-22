@@ -2,27 +2,32 @@
     --cyan: rgb(0, 255, 255);
     --navyBlue: rgb(0, 25, 50);
 
-    --blue-light : rgb(0, 0, 255);
+    --blue-light: rgb(0, 0, 255);
     --blue-dark: rgb(0, 0, 185);
     --blue: var(--blue-dark);
 
     --green-light : rgb(0, 255, 0);
-    --green-dark: rgb(0, 180, 0);
+    --green-dark: rgb(0, 140, 0);
     --green: var(--blue-dark);
 
     --grey: var(50, 50, 50);
 }
 
 .dark{
-    background-color: var(--navyBlue);
     color: var(--cyan);
     --blue: var(--blue-light);
     --green: var(--green-light);
+    background: linear-gradient(var(--blue), var(--navyBlue));
+    background-size: 100% auto;
+    min-height: 100vh;
 }
 
 .light{
-    background-color: var(--cyan);
     color: var(--navyBlue);
     --blue: var(--blue-dark);
     --green: var(--green-dark);
+    background: linear-gradient(var(--cyan), var(--blue-light));
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }

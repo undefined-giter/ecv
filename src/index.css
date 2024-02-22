@@ -5,15 +5,12 @@
 @tailwind components;
 @tailwind utilities;
 
-.bg_curriculum{
-    background-image: linear-gradient(rgba(255, 255, 255, 0), var(--blue));
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-}
+html{scroll-behavior: smooth}
+
+p, h1, h2{cursor: default;}
 
 .bg_hobbies{
-    background-image: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.2)), url('img/bg/hobbies.jpg');
+    background-image: url('/img/bg/hobbies.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
