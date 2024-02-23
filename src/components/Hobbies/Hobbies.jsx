@@ -1,4 +1,5 @@
-import { useEffect } from "react"
+import { useEffect } from 'react'
+import Footer from '../Footer/Footer'
 import { useVisited } from '/src/contexts/VisitedContext'
 
 export default function Hobbies() {
@@ -11,7 +12,9 @@ export default function Hobbies() {
   }, [])
 
 
-  return (
-    <div>Hobbies</div>
-  )
+  return <div>
+      Hobbies
+
+      <Footer />
+    </div>
 }

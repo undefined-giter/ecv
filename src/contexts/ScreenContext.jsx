@@ -3,10 +3,13 @@ import React, { createContext, useState, useEffect, useContext } from 'react'
 const ScreenContext = createContext()
 
 export const ScreenProvider = ({ children }) => {
-  const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth >= 768)
+
+  const PIXEL_BREAK = 768
+
+  const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth >= PIXEL_BREAK)
 
   useEffect(() => {
-    const handleResize = ()=>{setIsLargeScreen(window.innerWidth >= 768)}
+    const handleResize = ()=>{setIsLargeScreen(window.innerWidth >= PIXEL_BREAK)}
 
     window.addEventListener("resize", handleResize)
     return () => window.removeEventListener("resize", handleResize)

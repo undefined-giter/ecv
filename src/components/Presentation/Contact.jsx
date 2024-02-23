@@ -142,7 +142,7 @@ export default function Contact(){
                     {/* <label htmlFor="file">Image <span>optionnel, 500kb max.</span></label>
                     <input type="file" name='file' /> */}
                     <div style={{position: 'relative'}}>
-                        <ReCAPTCHA ref={ el => captchaRef.current = el} sitekey="6Ld6ZJAnAAAAAIriI7n7-n1H2P-juUxP17QAyV8n" onChange={handleCaptchaVerification} style={{transform: 'scale(0.74) translateX(-38.5px)'}} />
+                        <ReCAPTCHA ref={ el => captchaRef.current = el} sitekey="6Ld6ZJAnAAAAAIriI7n7-n1H2P-juUxP17QAyV8n" onChange={handleCaptchaVerification} style={{transform: 'scale(0.74) translate(-38.5px, 0.5px)'}} />
                         <div id='aroundLine' className={s.aroundLine}></div>
                     </div>
                     <button type='submit' className={`${s.btn} ${sendingMail ? `` : inputsFormOk ? `` : `${s.deactivatedBtn}`}`} style={{fontFamily: 'initial'}} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} id='sendBtn' >

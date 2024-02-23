@@ -1,0 +1,14 @@
+@font-face {
+    font-family: 'Orbitron';
+    src: url('../../assets/fonts/Orbitron/Regular.ttf') format('truetype');
+}
+
+.footer{
+    font-family: 'Orbitron', sans-serif;
+    text-align: center;
+    margin-top: 2em;
+}
+
+.footer_dark{color: var(--blue)}
+
+.footer_light{color: var(--navyBlue)}

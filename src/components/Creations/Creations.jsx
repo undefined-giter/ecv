@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import Footer from '../Footer/Footer'
 import { useVisited } from '/src/contexts/VisitedContext'
 
 export default function Creations() {
@@ -6,7 +7,9 @@ export default function Creations() {
   
   useEffect(()=>{setOtherPageHasBeenVisited(true)}, [setOtherPageHasBeenVisited])
 
-  return (
-    <div>Quelques Projets / parmis bien d'autres...</div>
-  )
+  return <div>
+    Quelques Projets parmis d'autres
+
+    <Footer />
+  </div>
 }

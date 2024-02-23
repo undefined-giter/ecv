@@ -6,7 +6,7 @@ import { useLocation } from 'react-router-dom'
 import { useScreen } from '/src/contexts/ScreenContext'
 import { useDarkMode } from '/src/contexts/DarkModeContext'
 import { useVisited } from '/src/contexts/VisitedContext'
-
+import Footer from '../Footer/Footer'
 
 export default function Presentation(){
   
@@ -93,6 +93,7 @@ export default function Presentation(){
       <div id='contact'>
         <Contact />
       </div>
+      <Footer />
     </div>
   )
 }
