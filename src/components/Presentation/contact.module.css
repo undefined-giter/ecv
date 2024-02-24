@@ -16,6 +16,11 @@
 
 .form input:focus{outline: var(--green);}
 
+.light{
+    color: var(--navyBlue) !important;
+    background: var(--cyan) !important;
+}
+
 .inputOkay{
     border-color: var(--green);
     box-shadow: 0 0 5px var(--green);
@@ -94,3 +99,8 @@
 }
 
 .hide{display: none}
+
+input::placeholder{color: rgba(255, 255, 255, 0.4) !important;}
+textarea::placeholder{color: rgba(255, 255, 255, 0.4) !important;}
+
+.light::placeholder{color: rgba(0, 0, 0, 0.5) !important;}

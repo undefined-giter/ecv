@@ -75,4 +75,13 @@
     transition: all 0.3s ease-in 0s;
 }
 
-.docs_light:hover{background-clip: text;}
+.docs_light{
+    color: var(--navyBlue);
+    background: var(--cyan);
+    border: white 2px solid;
+}
+
+.docs_light:hover{
+    background-clip: text;
+    border: var(--green) 2px solid;
+}

@@ -127,15 +127,16 @@ export default function Contact(){
                 
                 <form onSubmit={ e =>sendMail(e)} className={s.form} ref={formRef} noValidate>
                     <label htmlFor="username">Nom</label>
-                    <input name="username" type="text" minLength="2" maxLength="50" className={`mb-2 ${s.username} ${nameIstLongEnough && s.inputOkay} ${nameLongEnough === false && s.inputNotOkay}`} onChange={ e => checkUsername(e.target.value)} onBlur={ e => checkUsernameOut(e.target.value)} />
+                    <input name="username" id='name' type="text" minLength="2" maxLength="50" placeholder='Paul Martin' className={`mb-2 ${s.username} ${nameIstLongEnough && s.inputOkay} ${nameLongEnough === false && s.inputNotOkay} ${darkMode ? '' : s.light}`} onChange={ e => checkUsername(e.target.value)} onBlur={ e => checkUsernameOut(e.target.value)} />
                     {!nameLongEnough && nameLongEnough !== null && <p className={s.errorP}>Entre 2 et 50 caractères requis</p>}
                     
                     <label htmlFor="email">Email</label>
-                    <input name="email" type="text" id='email' className={`mb-2 ${emailIsValid && s.inputOkay} ${emailValid === false && s.inputNotOkay}`} onChange={ e => checkEmail(e.target.value)} onBlur={ e => checkEmailOut(e.target.value)} />
+                    <input name="email" type="text" id='email' className={`mb-2 ${emailIsValid && s.inputOkay} ${emailValid === false && s.inputNotOkay} ${darkMode ? '' : s.light}`} onChange={ e => checkEmail(e.target.value)} onBlur={ e => checkEmailOut(e.target.value)} placeholder='paul.martin@gmail.com'/>
                     {!emailValid && emailValid !== null && <p className={s.errorP}>Format attendu : 'exemple@gmail.com'</p>}
 
                     <label htmlFor="message">Message</label>
-                    <textarea name="message" rows="2" minLength="15" maxLength="500" id={messageLengthOk && 'message'} className={`${messageLengthOk && s.inputOkay} ${messageLongEnough === false && s.inputNotOkay}`} onChange={ e => checkMessage(e.target.value)} onBlur={ e => checkMessageOut(e.target.value)} title='Veuillez décrire votre demande : entre 15 et 500 caractères' style={{outline:'none'}} />
+                    <textarea name="message" rows="2" minLength="15" maxLength="500" id={messageLengthOk && 'message'} className={`${messageLengthOk && s.inputOkay} ${messageLongEnough === false && s.inputNotOkay} ${darkMode ? '' : s.light}`} onChange={ e => checkMessage(e.target.value)} onBlur={ e => checkMessageOut(e.target.value)} title='Veuillez décrire votre demande : entre 15 et 500 caractères' style={{outline:'none'}} placeholder="Bonjour,
+Êtes vous disponible... (Oui !)" />
                     {!messageLongEnough && messageLongEnough !== null && <p className={`${s.errorP} ${s.errorMessage}`}>Décrivez votre demande: min 15 caractères</p>}
                     
 
