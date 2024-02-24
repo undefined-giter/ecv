@@ -63,8 +63,8 @@ export default function Curriculum() {
     :
 
       <>
-        <div className="flex flex-col items-center justify-center overflow-hidden">
-          <div className="relative overflow-hidden p-6">
+        <div className="flex flex-col items-center justify-center">
+          <div className="relative p-6">
             <div className="absolute border-cyan-500 h-full border -translate-x-2"></div>
             
             <Card icon={faCode} title='Développeur' subtitle='Carrefour, Apprentissage en Alternance' duration='1 an'>Développement et maintenance d'applications internes.<br />Principalement en PHP, mais aussi en SQL et JS.<br />Environnement Windows et Linux, Git.<br />Équipe restreinte, méthode Agile.<br /><br />Utilisation quotidienne de Linux.<br />Git, dev, hors-prod et production en équipe.<br />Découverte de la gestion des VM en grande entreprise.</Card>

@@ -67,7 +67,7 @@
 }
 
 .docs:hover{
-    border: 2px solid white;
+    border: 2px solid var(--green);
     background: var(--cyan);
     border-radius: 12px;
     color: var(--blue);
@@ -82,6 +82,6 @@
 }
 
 .docs_light:hover{
-    background-clip: text;
-    border: var(--green) 2px solid;
+    color: var(--cyan);
+    background: var(--blue);
 }

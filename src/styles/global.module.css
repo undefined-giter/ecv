@@ -10,7 +10,8 @@
     --green-dark: rgb(0, 140, 0);
     --green: var(--blue-dark);
 
-    --grey: var(50, 50, 50);
+    --grey: rgb(40, 40, 40);
+    --transparent: rgba(0, 0, 0, 0);
 }
 
 .dark{
