@@ -18,7 +18,7 @@ function App() {
           <VisitedProvider>
             <Routes>
               <Route path="/" element={<Menu />} >
-                <Route path="/" element={<Presentation />} />
+                <Route index element={<Presentation />} />
                 <Route path="/Curriculum" element={<Curriculum />} />
                 <Route path="/Objectif" element={<Goal />} />
                 <Route path="/Realisations" element={<Creations />} />

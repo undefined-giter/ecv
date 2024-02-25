@@ -9,12 +9,12 @@ export default function Goal(){
   const { setOtherPageHasBeenVisited } = useVisited()
   useEffect(()=>{setOtherPageHasBeenVisited(true)}, [setOtherPageHasBeenVisited])
 
-  const { setScrollToContact } = useScreen()
+  const { openContactModal, setOpenContactModal } = useScreen()
 
   return <div>
     <div className='max-w-[750px] min-w-[450px] mx-auto'> 🔻🚧Faire 2 pans : 1 LM déguisée | 1 Qui suis-je ?🚧🔻
       <p style={{ textAlign: 'justify' }}>
-        &nbsp;&nbsp;&nbsp;&nbsp;Si vous être sûr mon site c'est probablement suite à ma candidature, vous savez donc que je suis en recherche d'emploi, et si je me suis permis de vos contacter c'est que vous avez un besoin qui correspond probablement à mes compétences de Développeur Junior.
+        &nbsp;&nbsp;&nbsp;&nbsp;Vousêtes certainement ici suite à ma candidature, vous savez donc que je suis en recherche d'emploi, et que vous avez un besoin qui correspond à mes compétences.
         <br /><br />
         &nbsp;&nbsp;&nbsp;&nbsp;Mon expérience professionnelle sur des projets de grande envergure, et la réalisation de multiples petits projets personnels FullStack m'ont construit une solide base de connaissances en développement.
         <br /><br />
@@ -27,7 +27,7 @@ export default function Goal(){
         &nbsp;&nbsp;&nbsp;&nbsp;Pour toutes ces raisons et bien d'autres je pense être un élément à avoir dans son équipe.<br />
         Bonne nouvelle : je recherche un emploi autour de Lyon !<br />
         Et comme une bonne nouvelle ne vient jamais seule, sachez que je suis disponible immédiatement !<br /><br />
-        Alors n'attendez pas plus pour <Link onClick={setScrollToContact(true)} to={{ pathname: "/", state: { scrollToContact: true } }}><b>me contacter</b></Link> !
+        Alors n'attendez pas plus pour <Link onClick={() => setOpenContactModal(true)} to={{ pathname: "/", state: { openContactModal: true } }}><b>me contacter</b></Link> !
         <br /><br />
         &nbsp;&nbsp;&nbsp;&nbsp;Ayant envie de travailler, j'espère avoir un retour de votre part pour pouvoir échanger sur notre éventuelle collaboration.
       </p>

@@ -3,9 +3,10 @@
     height: 120px;
 }
 .hide{opacity: 0}
+.show{opacity: 1}
 .fade_in {
     opacity: 1;
-    transition: opacity 5s;
+    transition: opacity 4s;
 }
 
 .screen{
@@ -15,8 +16,7 @@
 
 .my_name{
     font-size: 25px;
-    animation-duration: 3s;
-    animation-name: slideName;
+    animation-duration: 4s;
     font-family: serif;
     font-weight: 400;
     -webkit-text-stroke-width: 0.4px;
@@ -25,10 +25,11 @@
     overflow-x: hidden;
     white-space: nowrap;
 }
+.my_name_firstTime{animation-name: slideName;}
 .my_name_light{-webkit-text-stroke-color: var(--navyBlue);}
 @keyframes slideName{
     0%{
-        margin-left: 200%;
+        margin-left: 80%;
     }
     100%{
         margin-left: 0%;
@@ -41,14 +42,14 @@
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    animation-name: slideJob;
-    animation-duration: 3.5s;    
+    animation-duration: 4s;    
     overflow-x: hidden;
     white-space: nowrap;
 }
+.job_title_firstTime{animation-name: slideJob;}
 @keyframes slideJob{
-    0%{
-        margin-right: 200%;
+    20%{
+        margin-right: 80%;
     }
     100%{
         margin-right: 0%;

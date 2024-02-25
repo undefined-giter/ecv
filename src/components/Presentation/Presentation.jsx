@@ -1,20 +1,23 @@
 import 'animate.css'
+import Modal from '../Modal/Modal.jsx'
 import s from './style.module.css'
 import Contact from './Contact.jsx'
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect, Suspense  } from 'react'
 import { useLocation } from 'react-router-dom'
 import { useScreen } from '/src/contexts/ScreenContext'
-import { useDarkMode } from '/src/contexts/DarkModeContext'
 import { useVisited } from '/src/contexts/VisitedContext'
-import Footer from '../Footer/Footer'
+import { useDarkMode } from '/src/contexts/DarkModeContext'
+
+const TechStack = React.lazy(() => import('./TechStack.jsx'))
+
 
 export default function Presentation(){
   
   const { darkMode } = useDarkMode()
-  const { isLargeScreen, scrollToContact } = useScreen()
+  const { isLargeScreen, openContactModal } = useScreen()
   const { welcomeDoneOnce, setWelcomeDoneOnce, presentationHasBeenVisited, setPresentationHasBeenVisited, otherPageHasBeenVisited } = useVisited()
   
-  const contact = "N'hésitez pas à me <a href='#contact'><b>contacter</b><small>⤵️</small></a>"
+  const contact = "<p style='cursor:pointer'>N'hésitez pas à me contacter<small>⤵️</small></p>"
   
   const [welcome, setWelcome] = useState(' ')
   const txt = 'Bienvenue sur mon eCV !'
@@ -30,7 +33,7 @@ export default function Presentation(){
           setPresentationHasBeenVisited(true)
         }, 5000)
       }
-    }, 60)
+    }, 42)
 
     return ()=>clearInterval(welcomeInterval)
   }, [txt, welcome])
@@ -51,49 +54,51 @@ export default function Presentation(){
     const lm = document.querySelector('#lm')
   
     const addAnimationClasses = doc => {doc.classList.add('animate__animated', 'animate__bounce')}
-    
-    const cvTimeout = setTimeout(()=>{addAnimationClasses(cv)}, 3600)
-    const lmTimeout = setTimeout(()=>{addAnimationClasses(lm)}, isLargeScreen ? 3800 : 3600)
+    let cvTimeout
+    let lmTimeout
+    if(!welcomeDoneOnce){
+      cvTimeout = setTimeout(()=>{addAnimationClasses(cv)}, 3600)
+      lmTimeout = setTimeout(()=>{addAnimationClasses(lm)}, isLargeScreen ? 3800 : 3600)
+    }
   
     return()=>{clearTimeout(cvTimeout);clearTimeout(lmTimeout);}
   }, [])
 
-  const location = useLocation();
-  useEffect(() => {
-    if(location.state?.scrollToContact){
-      const contactSection = document.querySelector('#contact')
-      if(contactSection){  contactSection.scrollIntoView({ behavior:'smooth' })
-      }
-    }
-  }, [location])
+  const [isModalOpen, setIsModalOpen] = useState(openContactModal | false);
 
-  useEffect(() => {
-    if(scrollToContact){document.querySelector('#contact').scrollIntoView()}
-  }, [scrollToContact])
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
 
 
   return (
     <div className='text-center'>
-      <div style={{ display: 'inline-block' }}>{presentationHasBeenVisited & otherPageHasBeenVisited ? <div style={{position:'relative', zIndex:970, width:'content'}} dangerouslySetInnerHTML={{ __html: contact }} /> : !presentationHasBeenVisited & welcomeDoneOnce ? <p>{txt}</p> : <p>{welcome}</p>}</div>
+      <div style={{ display: 'inline-block' }}>{presentationHasBeenVisited ? <div onClick={()=>{setIsModalOpen(!isModalOpen)}} style={{position:'relative', zIndex:970, width:'content'}} dangerouslySetInnerHTML={{ __html: contact }} /> : !presentationHasBeenVisited & welcomeDoneOnce ? <p>{txt}</p> : <p>{welcome}</p>}</div>
 
       <div className="mt-8">
         {!ProfileImage && <div style={{ height:'120px', textAlign:'center', paddingTop:'45px' }}>Chargement🔎</div>}
-        <div className={`${s.hide} ${imageLoaded ? s.fade_in : ''}`}>
+        <div className={`${!welcomeDoneOnce ? s.hide : s.show} ${imageLoaded & !presentationHasBeenVisited ? s.fade_in : ''}`}>
           {ProfileImage && <ProfileImage />}
         </div>
-        <h2 className={`${s.my_name} ${!darkMode ? s.my_name_light : ''}`}>Léo RIPERT</h2>
-        <p className={s.job_title}>Développeur Web</p>
-      </div>      
+        <h2 className={`${`${s.my_name} ${!welcomeDoneOnce ? s.hide : s.show}`} transition-opacity duration-900 ${!presentationHasBeenVisited & !otherPageHasBeenVisited ? s.my_name_firstTime : ''} ${!darkMode ? s.my_name_light : ''}`}>Léo RIPERT</h2>
+        <p className={`${`${s.job_title} ${!welcomeDoneOnce ? s.hide : s.show}`} transition-opacity duration-1000 ${!presentationHasBeenVisited & !otherPageHasBeenVisited ? s.job_title_firstTime : ''}`}>Développeur Web</p>
+        <div className={`flex items-center justify-center h-24`}>
+          <Suspense fallback={<div>Chargement🔎</div>}>
+            <TechStack />
+          </Suspense>
+        </div>
+      </div>
       <div className={`flex mt-2 ${isLargeScreen ? 'flex-row items-center justify-center' : 'flex-col items-center justify-center'}`}>
         <a href="/docs/CV_RIPERTLéo_Développeur.pdf" target="_blank" className={`${s.docs} ${!darkMode ? s.docs_light : ''}`} id="cv">Télécharger CV</a>
         <a href="/docs/LM_RIPERTLéo_Développeur.pdf" target="_blank" className={`${s.docs} ${!darkMode ? s.docs_light : ''} ${!isLargeScreen ? 'mt-2' : ''}`} id="lm" >Télécharger LM</a>
       </div>
       <br />
-      <h2>Envoyez-moi un email</h2>
+      <br />
       <div id='contact'>
-        <Contact />
+        <button onClick={openModal} className={`${s.docs} ${!darkMode ? s.docs_light : ''} text-4xl`}>📧</button>
+        <Modal isOpen={isModalOpen} onClose={closeModal}>
+          <Contact />
+        </Modal>
       </div>
-      <Footer />
     </div>
   )
 }
