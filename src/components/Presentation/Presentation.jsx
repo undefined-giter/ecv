@@ -2,11 +2,10 @@ import 'animate.css'
 import Modal from '../Modal/Modal.jsx'
 import s from './style.module.css'
 import Contact from './Contact.jsx'
-import React, { useState, useEffect, Suspense  } from 'react'
-import { useLocation } from 'react-router-dom'
 import { useScreen } from '/src/contexts/ScreenContext'
 import { useVisited } from '/src/contexts/VisitedContext'
 import { useDarkMode } from '/src/contexts/DarkModeContext'
+import React, { useState, useEffect, Suspense  } from 'react'
 
 const TechStack = React.lazy(() => import('./TechStack.jsx'))
 
@@ -57,8 +56,8 @@ export default function Presentation(){
     let cvTimeout
     let lmTimeout
     if(!welcomeDoneOnce){
-      cvTimeout = setTimeout(()=>{addAnimationClasses(cv)}, 3600)
-      lmTimeout = setTimeout(()=>{addAnimationClasses(lm)}, isLargeScreen ? 3800 : 3600)
+      cvTimeout = setTimeout(()=>{addAnimationClasses(cv)}, 4600)
+      lmTimeout = setTimeout(()=>{addAnimationClasses(lm)}, isLargeScreen ? 4800 : 4600)
     }
   
     return()=>{clearTimeout(cvTimeout);clearTimeout(lmTimeout);}
@@ -82,19 +81,19 @@ export default function Presentation(){
         <h2 className={`${`${s.my_name} ${!welcomeDoneOnce ? s.hide : s.show}`} transition-opacity duration-900 ${!presentationHasBeenVisited & !otherPageHasBeenVisited ? s.my_name_firstTime : ''} ${!darkMode ? s.my_name_light : ''}`}>Léo RIPERT</h2>
         <p className={`${`${s.job_title} ${!welcomeDoneOnce ? s.hide : s.show}`} transition-opacity duration-1000 ${!presentationHasBeenVisited & !otherPageHasBeenVisited ? s.job_title_firstTime : ''}`}>Développeur Web</p>
         <div className={`flex items-center justify-center h-24`}>
-          <Suspense fallback={<div>Chargement🔎</div>}>
+          <Suspense fallback={<div>{/* Chargement🔎 */}</div>}>
             <TechStack />
           </Suspense>
         </div>
       </div>
-      <div className={`flex mt-2 ${isLargeScreen ? 'flex-row items-center justify-center' : 'flex-col items-center justify-center'}`}>
+      <div className={`flex mt-2 items-center justify-center ${isLargeScreen ? 'flex-row' : 'flex-col'} ${!welcomeDoneOnce ? s.hide : s.docs_show}  `}>
         <a href="/docs/CV_RIPERTLéo_Développeur.pdf" target="_blank" className={`${s.docs} ${!darkMode ? s.docs_light : ''}`} id="cv">Télécharger CV</a>
         <a href="/docs/LM_RIPERTLéo_Développeur.pdf" target="_blank" className={`${s.docs} ${!darkMode ? s.docs_light : ''} ${!isLargeScreen ? 'mt-2' : ''}`} id="lm" >Télécharger LM</a>
       </div>
       <br />
       <br />
       <div id='contact'>
-        <button onClick={openModal} className={`${s.docs} ${!darkMode ? s.docs_light : ''} text-4xl`}>📧</button>
+        <button onClick={openModal} className={`${s.docs} ${!darkMode ? s.docs_light : ''} ${!welcomeDoneOnce ? s.hide : s.mail_show} text-4xl`}>📧</button>
         <Modal isOpen={isModalOpen} onClose={closeModal}>
           <Contact />
         </Modal>
