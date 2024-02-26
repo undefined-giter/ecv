@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import Footer from '../Footer/Footer'
+import Footer from '../Footer/Footer.jsx'
 import { useVisited } from '/src/contexts/VisitedContext'
 
 export default function Hobbies() {
@@ -12,9 +12,11 @@ export default function Hobbies() {
   }, [])
 
 
-  return <div>
+  return (
+    <div>
       Hobbies
-
+      <br />
       <Footer />
     </div>
+  )
 }

@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
-import Footer from '../Footer/Footer'
 import { Link } from 'react-router-dom'
+import Footer from '../Footer/Footer.jsx'
 import { useScreen } from '/src/contexts/ScreenContext'
 import { useVisited } from '/src/contexts/VisitedContext'
 
@@ -9,7 +9,7 @@ export default function Goal(){
   const { setOtherPageHasBeenVisited } = useVisited()
   useEffect(()=>{setOtherPageHasBeenVisited(true)}, [setOtherPageHasBeenVisited])
 
-  const { openContactModal, setOpenContactModal } = useScreen()
+  const { setOpenContactModal } = useScreen()
 
   return <div>
     <div className='max-w-[750px] min-w-[450px] mx-auto'> 🔻🚧Faire 2 pans : 1 LM déguisée | 1 Qui suis-je ?🚧🔻
@@ -32,6 +32,7 @@ export default function Goal(){
         &nbsp;&nbsp;&nbsp;&nbsp;Ayant envie de travailler, j'espère avoir un retour de votre part pour pouvoir échanger sur notre éventuelle collaboration.
       </p>
     </div>
+    <br />
     <Footer />
   </div>
 }

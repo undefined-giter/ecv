@@ -19,8 +19,6 @@
     --blue: var(--blue-light);
     --green: var(--green-light);
     background: linear-gradient(var(--blue), var(--navyBlue));
-    background-size: 100% auto;
-    min-height: 100vh;
 }
 
 .light{

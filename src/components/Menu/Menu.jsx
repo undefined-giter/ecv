@@ -6,7 +6,7 @@ import { useDarkMode } from '/src/contexts/DarkModeContext'
 
 export default function Menu(){
 
-  const { isLargeScreen } = useScreen()
+  const { isMiddleScreen } = useScreen()
   const { darkMode, toggleDarkMode } = useDarkMode()
   
   const navigate = useNavigate()
@@ -37,7 +37,7 @@ export default function Menu(){
 
   const toggleMenu = () =>{setMenuBurgerDeployed(!menuBurgerDeployed)}
 
-  const separator = isLargeScreen && <span className={s.gray}>|</span>
+  const separator = isMiddleScreen && <span className={s.gray}>|</span>
 
   useEffect(() => {
     if(menuBurgerDeployed){
@@ -49,13 +49,13 @@ export default function Menu(){
 
   useEffect(() =>{
     setMenuBurgerDeployed(false)
-  }, [isLargeScreen])
+  }, [isMiddleScreen])
   
   return(
     <main>
-      <nav className={`${s.navbar} ${darkMode ? s.dark_menu : s.light_menu} ${isLargeScreen ? '' : 'w-[40px]'}`}>
-      {!isLargeScreen && <img onClick={() => setMenuBurgerDeployed(!menuBurgerDeployed)} src={darkMode ? '/img/menu_burger_cyan.svg' : '/img/menu_burger.svg'} width='40px' className={s.svg} />}
-        <ul className={`${s.menu} ${isLargeScreen ? '' : s.menu_burger} ${menuBurgerDeployed && !isLargeScreen ? `${s.burger_open} ${!darkMode && s.light_deployed}` : ''}`}>
+      <nav className={`${s.navbar} ${darkMode ? s.dark_menu : s.light_menu} ${isMiddleScreen ? '' : 'w-[40px]'}`}>
+      {!isMiddleScreen && <img onClick={() => setMenuBurgerDeployed(!menuBurgerDeployed)} src={darkMode ? '/img/menu_burger_cyan.svg' : '/img/menu_burger.svg'} width='40px' className={s.svg} />}
+        <ul className={`${s.menu} ${isMiddleScreen ? '' : s.menu_burger} ${menuBurgerDeployed && !isMiddleScreen ? `${s.burger_open} ${!darkMode && s.light_deployed}` : ''}`}>
           <li onClick={() => {navigate("/"); toggleMenu()}} className={`${location.pathname === "/" ? s.active : ""} ${darkMode ? s.dark_hover : s.light_hover}`}>Présentation</li>{separator}
           <li onClick={() => {navigate("/Curriculum"); toggleMenu()}} className={`${location.pathname === "/Curriculum" ? s.active : ""} ${darkMode ? s.dark_hover : s.light_hover}`}>Curriculum</li>{separator}
           <li onClick={() => {navigate("/Objectif"); toggleMenu()}} className={`${location.pathname === "/Objectif" ? s.active : ""} ${darkMode ? s.dark_hover : s.light_hover}`}>Objectif</li>{separator}
@@ -72,7 +72,7 @@ export default function Menu(){
           {darkMode ? '☀️' : '🌑'}
         </button>
       </div>
-      <div className={isLargeScreen ? s.outlet : ''}>
+      <div className={isMiddleScreen ? s.outlet : ''}>
         <Outlet />
       </div>
     </main>

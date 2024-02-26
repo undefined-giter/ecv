@@ -1,6 +1,6 @@
 import Card from './Card'
 import { useEffect } from 'react'
-import Footer from '../Footer/Footer'
+import Footer from '../Footer/Footer.jsx'
 import { useScreen } from '/src/contexts/ScreenContext'
 import { useVisited } from '/src/contexts/VisitedContext'
 import { useDarkMode } from '/src/contexts/DarkModeContext'
@@ -57,6 +57,7 @@ export default function Curriculum() {
             </div>
           </div>
         </div>
+        <br />
         <Footer />
       </>
 
@@ -64,7 +65,7 @@ export default function Curriculum() {
 
       <>
         <div className="flex flex-col items-center justify-center">
-          <div className="relative p-6">
+          <div className="relative mb-2">
             <div className="absolute border-cyan-500 h-full border -translate-x-2"></div>
             
             <Card icon={faCode} title='Développeur' subtitle='Carrefour, Apprentissage en Alternance' duration='1 an'>Développement et maintenance d'applications internes.<br />Principalement en PHP, mais aussi en SQL et JS.<br />Environnement Windows et Linux, Git.<br />Équipe restreinte, méthode Agile.<br /><br />Utilisation quotidienne de Linux.<br />Git, dev, hors-prod et production en équipe.<br />Découverte de la gestion des VM en grande entreprise.</Card>
@@ -75,6 +76,7 @@ export default function Curriculum() {
             <Card icon={faPencil} title='Menuisier' subtitle='Komilfo, SDCC, Berriat Bâtiment, Sarrazin, Gontard' duration='5 ans'>Fabrication et pose de fenêtres, portes, volets et meubles de style anciens dans des menuiseries artisanales.<br />Fabrication d'ossature bois et pose de menuiseries aluminium.<br /><br />Véritable découverte du plaisir de créer.<br />Appréciation de l'échange avec les clients.<br />Apprentissage de l'autonomie et du travail soigné.</Card>
           </div>
         </div>
+        <br />
         <Footer />
       </>
   )

@@ -1,7 +1,8 @@
 import 'animate.css'
-import Modal from '../Modal/Modal.jsx'
 import s from './style.module.css'
 import Contact from './Contact.jsx'
+import Modal from '../Modal/Modal.jsx'
+import Footer from '../Footer/Footer.jsx'
 import { useScreen } from '/src/contexts/ScreenContext'
 import { useVisited } from '/src/contexts/VisitedContext'
 import { useDarkMode } from '/src/contexts/DarkModeContext'
@@ -11,9 +12,9 @@ const TechStack = React.lazy(() => import('./TechStack.jsx'))
 
 
 export default function Presentation(){
-  
+
   const { darkMode } = useDarkMode()
-  const { isLargeScreen, openContactModal } = useScreen()
+  const { isMiddleScreen, openContactModal } = useScreen()
   const { welcomeDoneOnce, setWelcomeDoneOnce, presentationHasBeenVisited, setPresentationHasBeenVisited, otherPageHasBeenVisited } = useVisited()
   
   const contact = "<p style='cursor:pointer'>N'hésitez pas à me contacter<small>⤵️</small></p>"
@@ -57,7 +58,7 @@ export default function Presentation(){
     let lmTimeout
     if(!welcomeDoneOnce){
       cvTimeout = setTimeout(()=>{addAnimationClasses(cv)}, 4600)
-      lmTimeout = setTimeout(()=>{addAnimationClasses(lm)}, isLargeScreen ? 4800 : 4600)
+      lmTimeout = setTimeout(()=>{addAnimationClasses(lm)}, isMiddleScreen ? 4800 : 4600)
     }
   
     return()=>{clearTimeout(cvTimeout);clearTimeout(lmTimeout);}
@@ -70,34 +71,38 @@ export default function Presentation(){
 
 
   return (
-    <div className='text-center'>
-      <div style={{ display: 'inline-block' }}>{presentationHasBeenVisited ? <div onClick={()=>{setIsModalOpen(!isModalOpen)}} style={{position:'relative', zIndex:970, width:'content'}} dangerouslySetInnerHTML={{ __html: contact }} /> : !presentationHasBeenVisited & welcomeDoneOnce ? <p>{txt}</p> : <p>{welcome}</p>}</div>
+    <div className={s.ctn}>
+      <div className='text-center'>
+        <div style={{ display: 'inline-block' }}>{presentationHasBeenVisited ? <div onClick={()=>{setIsModalOpen(!isModalOpen)}} style={{position:'relative', zIndex:970, width:'content'}} dangerouslySetInnerHTML={{ __html: contact }} /> : !presentationHasBeenVisited & welcomeDoneOnce ? <p>{txt}</p> : <p>{welcome}</p>}</div>
 
-      <div className="mt-8">
-        {!ProfileImage && <div style={{ height:'120px', textAlign:'center', paddingTop:'45px' }}>Chargement🔎</div>}
-        <div className={`${!welcomeDoneOnce ? s.hide : s.show} ${imageLoaded & !presentationHasBeenVisited ? s.fade_in : ''}`}>
-          {ProfileImage && <ProfileImage />}
+        <div className="mt-8">
+          {!ProfileImage && <div style={{ height:'120px', textAlign:'center', paddingTop:'45px' }}>Chargement🔎</div>}
+          <div className={`${!welcomeDoneOnce ? s.hide : s.show} ${imageLoaded & !presentationHasBeenVisited ? s.fade_in : ''}`}>
+            {ProfileImage && <ProfileImage />}
+          </div>
+          <h2 className={`${`${s.my_name} ${!welcomeDoneOnce ? s.hide : s.show}`} transition-opacity duration-900 ${!presentationHasBeenVisited & !otherPageHasBeenVisited ? s.my_name_firstTime : ''} ${!darkMode ? s.my_name_light : ''}`}>Léo RIPERT</h2>
+          <p className={`${`${s.job_title} ${!welcomeDoneOnce ? s.hide : s.show}`} transition-opacity duration-1000 ${!presentationHasBeenVisited & !otherPageHasBeenVisited ? s.job_title_firstTime : ''}`}>Développeur Web</p>
+          <div className={`flex items-center justify-center h-24`}>
+            <Suspense fallback={<div>{/* Chargement🔎 */}</div>}>
+              <TechStack />
+            </Suspense>
+          </div>
         </div>
-        <h2 className={`${`${s.my_name} ${!welcomeDoneOnce ? s.hide : s.show}`} transition-opacity duration-900 ${!presentationHasBeenVisited & !otherPageHasBeenVisited ? s.my_name_firstTime : ''} ${!darkMode ? s.my_name_light : ''}`}>Léo RIPERT</h2>
-        <p className={`${`${s.job_title} ${!welcomeDoneOnce ? s.hide : s.show}`} transition-opacity duration-1000 ${!presentationHasBeenVisited & !otherPageHasBeenVisited ? s.job_title_firstTime : ''}`}>Développeur Web</p>
-        <div className={`flex items-center justify-center h-24`}>
-          <Suspense fallback={<div>{/* Chargement🔎 */}</div>}>
-            <TechStack />
-          </Suspense>
+        <div className={`flex mt-2 items-center justify-center ${isMiddleScreen ? 'flex-row' : 'flex-col'} ${!welcomeDoneOnce ? s.hide : s.docs_show}  `}>
+          <a href="/docs/CV_RIPERTLéo_Développeur.pdf" target="_blank" className={`${s.docs} ${!darkMode ? s.docs_light : ''}`} id="cv">Télécharger CV</a>
+          <a href="/docs/LM_RIPERTLéo_Développeur.pdf" target="_blank" className={`${s.docs} ${!darkMode ? s.docs_light : ''} ${!isMiddleScreen ? 'mt-2' : ''}`} id="lm" >Télécharger LM</a>
         </div>
-      </div>
-      <div className={`flex mt-2 items-center justify-center ${isLargeScreen ? 'flex-row' : 'flex-col'} ${!welcomeDoneOnce ? s.hide : s.docs_show}  `}>
-        <a href="/docs/CV_RIPERTLéo_Développeur.pdf" target="_blank" className={`${s.docs} ${!darkMode ? s.docs_light : ''}`} id="cv">Télécharger CV</a>
-        <a href="/docs/LM_RIPERTLéo_Développeur.pdf" target="_blank" className={`${s.docs} ${!darkMode ? s.docs_light : ''} ${!isLargeScreen ? 'mt-2' : ''}`} id="lm" >Télécharger LM</a>
+        <br />
+        <br />
+        <div id='contact'>
+          <button onClick={openModal} className={`${s.docs} ${!darkMode ? s.docs_light : ''} ${!welcomeDoneOnce ? s.hide : s.mail_show} text-4xl`}>📧</button>
+          <Modal isOpen={isModalOpen} onClose={closeModal}>
+            <Contact />
+          </Modal>
+        </div>
       </div>
       <br />
-      <br />
-      <div id='contact'>
-        <button onClick={openModal} className={`${s.docs} ${!darkMode ? s.docs_light : ''} ${!welcomeDoneOnce ? s.hide : s.mail_show} text-4xl`}>📧</button>
-        <Modal isOpen={isModalOpen} onClose={closeModal}>
-          <Contact />
-        </Modal>
-      </div>
+      <Footer />
     </div>
   )
 }

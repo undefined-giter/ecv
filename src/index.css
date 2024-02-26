@@ -8,17 +8,8 @@
 html{
     scroll-behavior: smooth;
     user-select: none;
+    min-height: 100%;
 }
-html, body, #root {
-    height: 100%;
-    margin: 0;
-  }
-  
-  #root {
-    display: flex;
-    flex-direction: column;
-  }
-  
 
 p, h1, h2, h5, h6{
     cursor: default;

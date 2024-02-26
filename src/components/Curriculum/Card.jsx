@@ -24,7 +24,7 @@ export default function Cart({icon, goRightIcon, firstItem, title, subtitle, bre
 
 
     return(
-        <div className={`max-w-[480px] min-w-[210px] -mr-6 ${goRightIcon ? '-translate-x-1/2 flex' : ''}`}>
+        <div className={`max-w-[480px] -mr-6 ${goRightIcon ? '-translate-x-1/2 flex' : ''}`}>
             { !goRightIcon && leftIcon }
             <div className={`rounded-lg shadow-xl px-6 py-4 hover:scale-105 transition-all ${isLargeScreen ? '' : 'ml-3'} ${darkMode ? 'bg-blue-800' : 'bg-cyan-300'}`}>
                 <h2 className="mb-3 font-bold text-xl" style={{ color: 'var(--green)' }}>{ title }</h2>
