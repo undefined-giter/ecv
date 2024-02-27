@@ -104,6 +104,6 @@
 .mail_show{
     transition-property: opacity;
     transition-duration: 2500ms;
-    transition-delay: 4.6s;
+    transition-delay: 4.1s;
     transition-timing-function: ease;
 }

@@ -50,15 +50,34 @@ export default function Menu(){
   useEffect(() =>{
     setMenuBurgerDeployed(false)
   }, [isMiddleScreen])
-  
+
+  function childsAppear(){
+    let presentationChilds = document.querySelectorAll('.presentationChilds')
+    presentationChilds.forEach(li=>{li.classList.add(s.subMenu)})
+    document.querySelector('#childsUl').style.outline = 'var(--green) 2px solid'
+    document.querySelector('#presentation').style.borderRadius = '1em 1em 0 0'
+  }
+  function childsDisappear(){
+    let presentationChilds = document.querySelectorAll('.presentationChilds')
+    presentationChilds.forEach(li=>{li.classList.remove(s.subMenu)})
+    document.querySelector('#childsUl').style.outline = 'none'
+    document.querySelector('#presentation').style.borderRadius = '1em'
+  }
+
   return(
     <main>
       <nav className={`${s.navbar} ${darkMode ? s.dark_menu : s.light_menu} ${isMiddleScreen ? '' : 'w-[40px]'}`}>
       {!isMiddleScreen && <img onClick={() => setMenuBurgerDeployed(!menuBurgerDeployed)} src={darkMode ? '/img/menu_burger_cyan.svg' : '/img/menu_burger.svg'} width='40px' className={s.svg} />}
         <ul className={`${s.menu} ${isMiddleScreen ? '' : s.menu_burger} ${menuBurgerDeployed && !isMiddleScreen ? `${s.burger_open} ${!darkMode && s.light_deployed}` : ''}`}>
-          <li onClick={() => {navigate("/"); toggleMenu()}} className={`${location.pathname === "/" ? s.active : ""} ${darkMode ? s.dark_hover : s.light_hover}`}>Présentation</li>{separator}
+          <li onClick={() => {navigate("/"); toggleMenu()}} className={`${location.pathname === "/" ? s.active : ""} ${darkMode ? s.dark_hover : s.light_hover}`}>Accueil</li>{separator}
           <li onClick={() => {navigate("/Curriculum"); toggleMenu()}} className={`${location.pathname === "/Curriculum" ? s.active : ""} ${darkMode ? s.dark_hover : s.light_hover}`}>Curriculum</li>{separator}
-          <li onClick={() => {navigate("/Objectif"); toggleMenu()}} className={`${location.pathname === "/Objectif" ? s.active : ""} ${darkMode ? s.dark_hover : s.light_hover}`}>Objectif</li>{separator}
+          <li id='presentation' onClick={() => {navigate("/Presentation"); toggleMenu(); childsDisappear()}} onMouseEnter={childsAppear} onMouseLeave={childsDisappear} className={`${s.presentation_parent} ${location.pathname === "/Presentation" ? s.active : ""} ${darkMode ? s.dark_hover : s.light_hover }`}>Présentation
+            <ul id='childsUl' className={`absolute font-medium text-xs ${darkMode ? s.childsUl : s.childsUl_light}`} style={{transform: 'translateX(-45px)'}}>
+              <li onClick={() => {navigate("/Presentation"); toggleMenu(); childsDisappear()}} className={`presentationChilds ${s.hide} ${s.leftChild} px-2`}>Professionnelle</li>
+              <li className={`presentationChilds ${s.hide} ${s.separator_unique}`}>|</li>
+              <li onClick={() => {navigate("/Presentation"); toggleMenu(); childsDisappear()}} className={`presentationChilds ${s.hide} ${s.rightChild} px-2`}>Personnelle</li>
+            </ul>
+          </li>{separator}
           <li onClick={() => {navigate("/Realisations"); toggleMenu()}} className={`${location.pathname === "/Realisations" ? s.active : ""} ${darkMode ? s.dark_hover : s.light_hover}`}>Réalisations</li>{separator}
           <li onClick={() => {navigate("/Hobbys"); toggleMenu()}} className={`${location.pathname === "/Hobbys" ? s.active : ""} ${darkMode ? s.dark_hover : s.light_hover}`}>Hobbys</li>
         </ul>

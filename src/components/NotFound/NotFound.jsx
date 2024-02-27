@@ -16,7 +16,7 @@ export default function NotFound(){
   return(
     <div style={{textAlign:'center', transform:'translateY(25vh)'}}>
       <p className='mb-4'>✋ Ce n'est pas cette page que vous recherchez ✋<br /></p>
-      <Link onClick={setOpenContactModal(true)} to={{ pathname: "/", state: { scrollToContact: true } }}><b>Contactez-moi</b></Link>
+      <Link onClick={setOpenContactModal(true)} to={{ pathname: "/"}}><b>Contactez-moi</b></Link>
       <img src="/img/notFound.png" alt="Écran vide" className='-mt-4 mx-auto scale-75' />
     </div>
   )

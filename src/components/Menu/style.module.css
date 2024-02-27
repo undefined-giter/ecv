@@ -1,6 +1,6 @@
 .navbar{
     position: fixed;
-    top: 0;
+    top: 2px;
     left: 0;
     right: 0;
     user-select: none;
@@ -26,22 +26,17 @@
 .svg{cursor: pointer;}
 
 .gray{
-    color: darkgrey;
+    color: rgb(75, 75, 75);
     margin: 0 6px;
+    transform: translateY(-1.5px);
 }
 
 .active{border-radius: 1em;}
 
-.dark_menu .active{
-    color: var(--navyBlue);
-    background-color: var(--cyan);
-}
+.dark_menu .active{color: var(--green);}
 .dark_menu:not(.active){color: var(--cyan);}
 
-.light_menu .active{
-    color: var(--cyan);
-    background-color: var(--navyBlue);
-}
+.light_menu .active{color: var(--blue-dark);}
 .light_menu:not(.active){color: var(--navyBlue);}
 
 .light_deployed{
@@ -60,19 +55,17 @@
     flex-direction: column;
     transform: translateX(-150%);
     transition: transform 0.4s ease;
-
 }
 
 .burger_open{
     transform: translateX(5%);
     transition: transform 0.4s ease;
-
 }
 
-.dark_hover:hover.active{color: var(--blue);}
-.light_hover:hover.active{color: var(--blue);}
-.dark_hover:hover:not(.active){background: rgba(50, 0, 200, 0.33);}
-.light_hover:hover:not(.active){background: rgba(50, 0, 200, 0.33);}
+.dark_hover:hover{color: var(--blue); background-color: var(--green-light);}
+.light_hover:hover{color: var(--cyan); background-color: var(--blue-dark);}
+
+.presentation_parent:hover{border-radius: 1em 1em 0 0;}
 
 .darkModeSwitcher{
     outline: none;
@@ -82,3 +75,42 @@
 h1{text-align: center;}
 
 .outlet{padding-top: 50px;}
+
+
+.presentation_parent:hover .childsUl{
+    outline: var(--green) 2px solid;
+    color: var(--cyan);
+    background: var(--blue);
+    border-radius: 1em;
+}
+
+.childsUl_light{
+    outline: var(--green) 2px solid;
+    color: var(--blue);
+    background: var(--cyan);
+}
+
+.leftChild, .rightChild{padding: 2px;}
+.leftChild:hover{
+    color:var(--blue);
+    background: var(--green);
+    border-radius: 1em 0 0 1em;
+}
+.separator_unique{
+    position: absolute;
+    color: rgb(75, 75, 75);
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+    font-weight: 500;
+    transform: translate(-2.8px, -2.4px) !important;
+}
+.rightChild:hover{
+    color:var(--blue);
+    background: var(--green);
+    border-radius: 0 1em 1em 0;
+}
+
+.hide{display: none;}
+
+.subMenu{display: inline;}

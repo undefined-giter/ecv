@@ -8,7 +8,7 @@ import Curriculum from './components/Curriculum/Curriculum'
 import { VisitedProvider } from './contexts/VisitedContext'
 import { DarkModeProvider } from './contexts/DarkModeContext'
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
-import Presentation from './components/Presentation/Presentation'
+import Homepage from './components/Homepage/Homepage'
 
 function App() {
 
@@ -22,9 +22,9 @@ function App() {
                   <VisitedProvider>
                     <Routes>
                       <Route path="/" element={<Menu />} >
-                        <Route index element={<Presentation />} />
+                        <Route index element={<Homepage />} />
                         <Route path="/Curriculum" element={<Curriculum />} />
-                        <Route path="/Objectif" element={<Goal />} />
+                        <Route path="/Presentation" element={<Goal />} />
                         <Route path="/Realisations" element={<Creations />} />
                         <Route path="/Hobbys" element={<Hobbies />} />
                       </Route>

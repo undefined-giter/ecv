@@ -13,11 +13,7 @@ export default function Curriculum() {
   const { isLargeScreen } = useScreen()
   const { setOtherPageHasBeenVisited } = useVisited()
 
-  useEffect(()=>{
-    setOtherPageHasBeenVisited(true)
-    document.querySelector('html').classList.add('bg_curriculum')
-    return()=>{document.querySelector('html').classList.remove('bg_curriculum')}
-  }, [setOtherPageHasBeenVisited])
+  useEffect(()=>{setOtherPageHasBeenVisited(true)}, [])
   
 
   return(
@@ -66,7 +62,7 @@ export default function Curriculum() {
       <>
         <div className="flex flex-col items-center justify-center">
           <div className="relative mb-2">
-            <div className="absolute border-cyan-500 h-full border -translate-x-2"></div>
+            <div className="absolute border-cyan-500 h-full border -translate-x-2 translate-y-4"></div>
             
             <Card icon={faCode} title='Développeur' subtitle='Carrefour, Apprentissage en Alternance' duration='1 an'>Développement et maintenance d'applications internes.<br />Principalement en PHP, mais aussi en SQL et JS.<br />Environnement Windows et Linux, Git.<br />Équipe restreinte, méthode Agile.<br /><br />Utilisation quotidienne de Linux.<br />Git, dev, hors-prod et production en équipe.<br />Découverte de la gestion des VM en grande entreprise.</Card>
             <Card icon={faLaptopCode} title='Développeur Web' subtitle='Formation continue chez 3w Academy' duration='3 mois'>Acquisition des bases du Développement Web et autoformation.<br />Création de site avec les langages HTML, CSS, JS, PHP et SQL.<br />Découverte de VSC, mySQL, Bootstrap, WordPress, jQuery, Git...<br /><br />Émerveillement du potentiel informatique.<br />Intérêt croissant envers le développement.<br />Naissance d'une passion.</Card>

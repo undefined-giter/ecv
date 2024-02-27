@@ -3,6 +3,7 @@ import Footer from '../Footer/Footer.jsx'
 import { useVisited } from '/src/contexts/VisitedContext'
 
 export default function Hobbies() {
+  
   const { setOtherPageHasBeenVisited } = useVisited()
   
   useEffect(()=>{
