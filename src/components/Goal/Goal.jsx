@@ -1,5 +1,5 @@
 import s from './style.module.css'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import Footer from '../Footer/Footer.jsx'
 import { useEffect, useState } from 'react'
 import { useScreen } from '/src/contexts/ScreenContext'
@@ -8,14 +8,19 @@ import { useDarkMode } from '/src/contexts/darkModeContext'
 
 export default function Goal(){
 
+  const location = useLocation()
   const { darkMode } = useDarkMode()
   const { setOpenContactModal } = useScreen()
   const { setOtherPageHasBeenVisited } = useVisited()
 
   useEffect(()=>{setOtherPageHasBeenVisited(true)}, [])
 
-  const [ tabSelected, setTabSelected ] = useState(0)
+  const { kindOfPresentation } = location.state || 0
+  const [ tabSelected, setTabSelected ] = useState(kindOfPresentation)
 
+  useEffect(()=>{
+    setTabSelected(kindOfPresentation)
+  }, [kindOfPresentation])
 
   return <div className='px-4'>
     <div className={`-translate-x-3 ${s.inner_tab_div} ${darkMode ? '' : s.inner_tab_div_light}`}>

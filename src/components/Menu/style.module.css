@@ -44,12 +44,6 @@
     background-color: var(--cyan) !important;
 }
 
-.btnLang{
-    width: 18px;
-    cursor: pointer;
-    margin-top: 2px;
-}
-
 .menu_burger{
     width: max-content;
     flex-direction: column;
@@ -67,9 +61,17 @@
 
 .presentation_parent:hover{border-radius: 1em 1em 0 0;}
 
+.btnLang{
+    cursor: pointer;
+    margin-top: 2px;
+}
+.btnLang:hover{transform: scale(1.15);}
 .darkModeSwitcher{
     outline: none;
     font-size: 18px;
+}
+.darkModeSwitcher:hover{
+    transform: scale(1.15);
 }
 
 h1{text-align: center;}
@@ -83,18 +85,28 @@ h1{text-align: center;}
     background: var(--blue);
     border-radius: 1em;
 }
+.transform_translate{transform: translateX(-45px)}
 
 .childsUl_light{
-    outline: var(--green) 2px solid;
+    outline: var(--blue) 1px solid !important;
     color: var(--blue);
-    background: var(--cyan);
+    background-color: var(--cyan);
+}
+.presentation_parent:hover .childsUl_light{
+    outline: var(--blue) 2px solid;
+    color: var(--navyBlue);
+    border-radius: 1em;
 }
 
-.leftChild, .rightChild{padding: 2px;}
+.leftChild_light:hover, .rightChild_light:hover{
+    color: var(--cyan)  !important;
+    background-color: var(--blue) !important;
+}
+
 .leftChild:hover{
-    color:var(--blue);
-    background: var(--green);
     border-radius: 1em 0 0 1em;
+    color: var(--blue);
+    background-color: var(--green-light);
 }
 .separator_unique{
     position: absolute;
@@ -106,11 +118,26 @@ h1{text-align: center;}
     transform: translate(-2.8px, -2.4px) !important;
 }
 .rightChild:hover{
-    color:var(--blue);
-    background: var(--green);
     border-radius: 0 1em 1em 0;
+    color: var(--blue);
+    background-color: var(--green-light);
 }
 
 .hide{display: none;}
 
 .subMenu{display: inline;}
+
+.burger_subMenuParent{border-radius: 1em 0 0 1em !important;}
+.burger_subMenuParent:hover .burger_subMenuUl{
+    display: inline;
+}
+
+.burger_subMenuUl{
+    display: none;
+    transform: translate(6px, -4px);
+}
+
+.burger_leftChild, .burger_rightChild{display: block;}
+
+.burger_leftChild{border-radius: 1em 1em 0 0 !important;}
+.burger_rightChild{border-radius: 0 0 1em 1em !important;}

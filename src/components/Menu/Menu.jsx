@@ -71,11 +71,11 @@ export default function Menu(){
         <ul className={`${s.menu} ${isMiddleScreen ? '' : s.menu_burger} ${menuBurgerDeployed && !isMiddleScreen ? `${s.burger_open} ${!darkMode && s.light_deployed}` : ''}`}>
           <li onClick={() => {navigate("/"); toggleMenu()}} className={`${location.pathname === "/" ? s.active : ""} ${darkMode ? s.dark_hover : s.light_hover}`}>Accueil</li>{separator}
           <li onClick={() => {navigate("/Curriculum"); toggleMenu()}} className={`${location.pathname === "/Curriculum" ? s.active : ""} ${darkMode ? s.dark_hover : s.light_hover}`}>Curriculum</li>{separator}
-          <li id='presentation' onClick={() => {navigate("/Presentation"); toggleMenu(); childsDisappear()}} onMouseEnter={childsAppear} onMouseLeave={childsDisappear} className={`${s.presentation_parent} ${location.pathname === "/Presentation" ? s.active : ""} ${darkMode ? s.dark_hover : s.light_hover }`}>Présentation
-            <ul id='childsUl' className={`absolute font-medium text-xs ${darkMode ? s.childsUl : s.childsUl_light}`} style={{transform: 'translateX(-45px)'}}>
-              <li onClick={() => {navigate("/Presentation"); toggleMenu(); childsDisappear()}} className={`presentationChilds ${s.hide} ${s.leftChild} px-2`}>Professionnelle</li>
+          <li id='presentation' onClick={() => {navigate("/Presentation"); toggleMenu(); childsDisappear()}} onMouseEnter={childsAppear} onMouseLeave={childsDisappear} className={`${s.presentation_parent} ${location.pathname === "/Presentation" ? s.active : ""} ${darkMode ? s.dark_hover : s.light_hover } ${isMiddleScreen ? '' : s.burger_subMenuParent}`}>Présentation
+            <ul id='childsUl' className={`absolute font-medium text-xs ${darkMode ? s.childsUl : s.childsUl_light} ${isMiddleScreen ? s.transform_translate : s.burger_subMenuUl}`}>
+              <li onClick={e => {e.stopPropagation(); navigate("/Presentation", { state: { kindOfPresentation: 0 } }); toggleMenu(); childsDisappear()}} className={`presentationChilds ${s.hide} ${s.leftChild} px-2 ${darkMode ? '' : s.leftChild_light} ${isMiddleScreen ? '' : s.burger_leftChild}`}>Professionnelle</li>
               <li className={`presentationChilds ${s.hide} ${s.separator_unique}`}>|</li>
-              <li onClick={() => {navigate("/Presentation"); toggleMenu(); childsDisappear()}} className={`presentationChilds ${s.hide} ${s.rightChild} px-2`}>Personnelle</li>
+              <li onClick={e => {e.stopPropagation(); navigate("/Presentation", { state: { kindOfPresentation: 1 } }); toggleMenu(); childsDisappear()}} className={`presentationChilds ${s.hide} ${s.rightChild} px-2 ${darkMode ? '' : s.rightChild_light} ${isMiddleScreen ? '' : s.burger_rightChild}`}>Personnelle</li>
             </ul>
           </li>{separator}
           <li onClick={() => {navigate("/Realisations"); toggleMenu()}} className={`${location.pathname === "/Realisations" ? s.active : ""} ${darkMode ? s.dark_hover : s.light_hover}`}>Réalisations</li>{separator}
@@ -84,7 +84,7 @@ export default function Menu(){
       </nav>
       <div className={`flex fixed right-1 top-1`} style={{zIndex: '995'}}>
         {imgLangShown && <button onClick={switchImgInput} className={s.btnLang}>
-            <img src="/img/world.png" alt="Language Selection" title={"Choose Language\n 🗣️🌎🌍🌏🤌"} />
+            <img src="/img/world.png" width='20px' alt="Language Selection" title={"Choose Language\n 🗣️🌎🌍🌏🤌"} />
         </button>}
         <div id='google_translate_element'></div>
         <button onClick={toggleDarkMode} className={s.darkModeSwitcher}>
