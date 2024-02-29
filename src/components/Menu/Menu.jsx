@@ -53,15 +53,22 @@ export default function Menu(){
 
   function childsAppear(){
     let presentationChilds = document.querySelectorAll('.presentationChilds')
+    let separatorhiddedInBurger = document.querySelector('.separatorhiddedInBurger')
     presentationChilds.forEach(li=>{li.classList.add(s.subMenu)})
+    document.querySelector('#childsUl').style.display = isMiddleScreen ? 'block' : 'inline'
     document.querySelector('#childsUl').style.outline = 'var(--green) 2px solid'
     document.querySelector('#presentation').style.borderRadius = '1em 1em 0 0'
+    if(isMiddleScreen){separatorhiddedInBurger.style.display = 'inline'}
+    else{separatorhiddedInBurger.style.display = 'none'}
   }
   function childsDisappear(){
     let presentationChilds = document.querySelectorAll('.presentationChilds')
+    let separatorhiddedInBurger = document.querySelector('.separatorhiddedInBurger')
     presentationChilds.forEach(li=>{li.classList.remove(s.subMenu)})
+    document.querySelector('#childsUl').style.display = 'none'
     document.querySelector('#childsUl').style.outline = 'none'
     document.querySelector('#presentation').style.borderRadius = '1em'
+    if(separatorhiddedInBurger){separatorhiddedInBurger.style.display = 'none'}
   }
 
   return(
@@ -72,9 +79,9 @@ export default function Menu(){
           <li onClick={() => {navigate("/"); toggleMenu()}} className={`${location.pathname === "/" ? s.active : ""} ${darkMode ? s.dark_hover : s.light_hover}`}>Accueil</li>{separator}
           <li onClick={() => {navigate("/Curriculum"); toggleMenu()}} className={`${location.pathname === "/Curriculum" ? s.active : ""} ${darkMode ? s.dark_hover : s.light_hover}`}>Curriculum</li>{separator}
           <li id='presentation' onClick={() => {navigate("/Presentation"); toggleMenu(); childsDisappear()}} onMouseEnter={childsAppear} onMouseLeave={childsDisappear} className={`${s.presentation_parent} ${location.pathname === "/Presentation" ? s.active : ""} ${darkMode ? s.dark_hover : s.light_hover } ${isMiddleScreen ? '' : s.burger_subMenuParent}`}>Présentation
-            <ul id='childsUl' className={`absolute font-medium text-xs ${darkMode ? s.childsUl : s.childsUl_light} ${isMiddleScreen ? s.transform_translate : s.burger_subMenuUl}`}>
+            <ul id='childsUl' className={`absolute font-medium text-xs p-0.5 ${darkMode ? s.childsUl : s.childsUl_light} ${isMiddleScreen ? s.transform_translate : s.burger_subMenuUl}`}>
               <li onClick={e => {e.stopPropagation(); navigate("/Presentation", { state: { kindOfPresentation: 0 } }); toggleMenu(); childsDisappear()}} className={`presentationChilds ${s.hide} ${s.leftChild} px-2 ${darkMode ? '' : s.leftChild_light} ${isMiddleScreen ? '' : s.burger_leftChild}`}>Professionnelle</li>
-              <li className={`presentationChilds ${s.hide} ${s.separator_unique}`}>|</li>
+              <li className={`presentationChilds separatorhiddedInBurger ${s.hide} ${s.separator_unique}`}>|</li>
               <li onClick={e => {e.stopPropagation(); navigate("/Presentation", { state: { kindOfPresentation: 1 } }); toggleMenu(); childsDisappear()}} className={`presentationChilds ${s.hide} ${s.rightChild} px-2 ${darkMode ? '' : s.rightChild_light} ${isMiddleScreen ? '' : s.burger_rightChild}`}>Personnelle</li>
             </ul>
           </li>{separator}

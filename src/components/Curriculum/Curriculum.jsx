@@ -60,7 +60,7 @@ export default function Curriculum() {
     :
 
       <>
-        <div className="flex flex-col items-center justify-center">
+        <div className="flex flex-col items-center justify-center overflow-hidden">
           <div className="relative mb-2">
             <div className="absolute border-cyan-500 h-full border -translate-x-2 translate-y-4"></div>
             

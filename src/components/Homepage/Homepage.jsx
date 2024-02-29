@@ -102,7 +102,6 @@ export default function Homepage(){
           </Modal>
         </div>
       </div>
-      <br />
       <Footer />
     </div>
   )
