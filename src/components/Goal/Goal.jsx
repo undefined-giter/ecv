@@ -31,7 +31,7 @@ export default function Goal(){
     <div className='overflow-hidden'>
       <p style={{textAlign:'center', transform: `${!tabSelected ? 'translate(-68px, -10px)' : 'translate(59px, -10px)'}`}}>🔻</p>
     </div>
-    <div className='max-w-[750px] min-w-[210px] mx-auto'>
+    <div className='max-w-[750px] min-w-[210px] mx-auto mb-8'>
       { !tabSelected &&
         <p style={{ textAlign: 'justify' }}>
           &nbsp;&nbsp;&nbsp;&nbsp;Vous êtes certainement ici suite à ma candidature, vous savez donc que je suis en recherche d'emploi, et que vous avez un besoin qui correspond à mes compétences.
@@ -61,7 +61,6 @@ export default function Goal(){
         </p>
       }
     </div>
-    <br />
     <Footer checkShowFooter={tabSelected} />
   </div>
 }

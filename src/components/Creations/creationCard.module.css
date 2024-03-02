@@ -82,3 +82,13 @@
     transition-duration: 600ms;
     outline: 2px solid var(--green);
 }
+
+.descriptionChildren{
+    font-size: 16px;
+    line-height: 1.2;
+    max-height: 2.4em;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    overflow: auto;
+}

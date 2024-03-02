@@ -16,27 +16,34 @@ export default function Creations() {
   useEffect(()=>{setOtherPageHasBeenVisited(true)}, [])
 
   return (
-    <div>
-      <div className='flex flex-col'>
-        <div className='flex justify-around mb-4'>
-          <CreationCard src={foodtruck} projectName='Foodtruck' language='react' link='https://foodtruck.leorip.com/'>
+    <>
+      <div className="flex justify-center flex-wrap">
+        <div className="p-4">
+          <CreationCard src={foodtruck} projectName="Foodtruck" language="react" link="https://foodtruck.leorip.com/">
             Site pour un foodtruck
           </CreationCard>
-          <CreationCard src={fruitsMarket} projectName='Fruits Market' language='react' link='https://fruitsmarket.leorip.com/'>
+        </div>
+        <div className="p-4">
+          <CreationCard src={fruitsMarket} projectName="Fruits Market" language="react" link="https://fruitsmarket.leorip.com/">
             Devanture d'un marché de fruits
           </CreationCard>
         </div>
-        <div className='flex justify-around'>
-          <CreationCard src={spa} projectName='SPA' language='PHP & SQL' link='https://spa.leorip.com/'>
-            Société protéctrice des Animaux <small className="pl-12 -mr-12 text-red-800">(<small className='line-through'>Single Page Application</small>)</small>
+        <div className="p-4">
+          <CreationCard src={spa} projectName="SPA" language="PHP & SQL" link="https://spa.leorip.com/">
+            Société protectrice des Animaux
+            <div className='absolute ml-4'><small className="text-red-800">(<small className='line-through'>Single Page Application</small>)</small></div>
           </CreationCard>
-          <CreationCard src={gilles} projectName='Gilles' language='PHP & SQL' link='https://gilles.leorip.com/'>
-            Un projet en commun,<br />dont je me suis occupé du backEnd et de l'invention du jeu
+        </div>
+        <div className="p-4">
+          <CreationCard src={gilles} projectName="Gilles" language="PHP & SQL" link="https://gilles.leorip.com/">
+            Projet en commun, un jeu inventé par mes soins dont j'ai développé le backEnd
           </CreationCard>
         </div>
       </div>
-      <br />
+      <div className='text-left md:text-center p-2'>
+        D'autres anciens projets sur mon <a href="https://github.com/undefined-giter?tab=repositories" target='_blank' className='font-bold'>github↗️</a>
+      </div>
       <Footer />
-    </div>
+    </>
   )
 }

@@ -22,7 +22,7 @@ export default function CreationCard({ src, projectName, language, children, lin
             <br />
             <div>
               <h6><span>Description</span></h6>
-              <p>{children}</p>
+              <p className={s.descriptionChildren}>{children}</p>
             </div>
             <a href={link} target='_blank' className={`${s.link} ${mouseOver ? '' : s.opacity0}`}>Lien vers {projectName}</a>
           </div>

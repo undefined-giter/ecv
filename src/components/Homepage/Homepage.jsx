@@ -73,7 +73,7 @@ export default function Homepage(){
 
   return (
     <div className={s.ctn}>
-      <div className='text-center'>
+      <div className='text-center mb-8'>
         <div style={{ display: 'inline-block' }}>{homepageHasBeenVisited ? <div onClick={()=>{setIsModalOpen(!isModalOpen)}} style={{position:'relative', zIndex:970, width:'content'}} dangerouslySetInnerHTML={{ __html: contact }} /> : !homepageHasBeenVisited & welcomeDoneOnce ? <p>{txt}</p> : <p>{welcome}</p>}</div>
 
         <div className="mt-8">

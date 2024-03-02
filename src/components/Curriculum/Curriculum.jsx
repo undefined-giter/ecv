@@ -21,7 +21,7 @@ export default function Curriculum() {
       <>
         <div className="flex flex-col relative overflow-hidden">
 
-        <div className={`absolute border-opacity-90 border h-full ${darkMode ? 'border-cyan-500' : 'border-cyan-800'}`} style={{left: 'calc(50% - 2px)'}}></div>
+        <div className={`absolute border-opacity-90 border h-full mb-8 ${darkMode ? 'border-cyan-500' : 'border-cyan-800'}`} style={{left: 'calc(50% - 2px)'}}></div>
 
           <div className="flex justify-center px-8 mt-4 -ml-2">
             <Card icon={faCode} goRightIcon firstItem title='Développeur' subtitle='Carrefour, Apprentissage en Alternance' duration='1 an'>Développement et maintenance d'applications internes, principalement en PHP, mais aussi en SQL et JS.<br />Environnement Windows et Linux, Git.<br />Équipe restreinte, méthode Agile.<br /><br />Utilisation quotidienne de Linux.<br />Git, dev, hors-prod et production en équipe.<br />Découverte de la gestion des VM en grande entreprise.</Card>
@@ -53,14 +53,13 @@ export default function Curriculum() {
             </div>
           </div>
         </div>
-        <br />
         <Footer />
       </>
 
     :
 
       <>
-        <div className="flex flex-col items-center justify-center overflow-hidden">
+        <div className="flex flex-col items-center justify-center overflow-hidden mb-8">
           <div className="relative mb-2">
             <div className="absolute border-cyan-500 h-full border -translate-x-2 translate-y-4"></div>
             
@@ -72,7 +71,6 @@ export default function Curriculum() {
             <Card icon={faPencil} title='Menuisier' subtitle='Komilfo, SDCC, Berriat Bâtiment, Sarrazin, Gontard' duration='5 ans'>Fabrication et pose de fenêtres, portes, volets et meubles de style anciens dans des menuiseries artisanales.<br />Fabrication d'ossature bois et pose de menuiseries aluminium.<br /><br />Véritable découverte du plaisir de créer.<br />Appréciation de l'échange avec les clients.<br />Apprentissage de l'autonomie et du travail soigné.</Card>
           </div>
         </div>
-        <br />
         <Footer />
       </>
   )

@@ -14,9 +14,8 @@ export default function Hobbies() {
 
 
   return (
-    <div>
+    <div className='mb-8'>
       Hobbies
-      <br />
       <Footer />
     </div>
   )
