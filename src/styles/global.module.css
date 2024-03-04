@@ -11,6 +11,9 @@
     --green: var(--blue-dark);
 
     --grey: rgb(40, 40, 40);
+
+    --scrollbar: var(--blue-light);
+    --scrollbar_bg: var(--navyBlue);
 }
 
 .dark{
@@ -18,6 +21,8 @@
     --blue: var(--blue-light);
     --green: var(--green-light);
     background: linear-gradient(var(--blue), var(--navyBlue));
+    --scrollbar: var(--blue-light);
+    --scrollbar_bg: var(--navyBlue);
 }
 
 .light{
@@ -28,4 +33,6 @@
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+    --scrollbar: var(--cyan);
+    --scrollbar_bg: var(--blue-light);
 }

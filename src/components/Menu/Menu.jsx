@@ -94,7 +94,7 @@ export default function Menu(){
             <img src="/img/world.png" width='20px' alt="Language Selection" title={"Choose Language\n 🗣️🌎🌍🌏🤌"} />
         </button>}
         <div id='google_translate_element'></div>
-        <button onClick={toggleDarkMode} className={s.darkModeSwitcher}>
+        <button onClick={() => {toggleDarkMode(); childsDisappear()}} className={s.darkModeSwitcher}>
           {darkMode ? '☀️' : '🌑'}
         </button>
       </div>

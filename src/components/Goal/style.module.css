@@ -45,3 +45,15 @@
 .selected{color: var(--green-light);}
 
 .selected_light{color: var(--blue);}
+
+.dark_iframe_map{position: relative;}
+.dark_iframe_map::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    pointer-events: none;
+}
