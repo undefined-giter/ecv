@@ -24,12 +24,12 @@ export default function Goal(){
   }, [kindOfPresentation])
 
   const quotes = [
+    { text: "Le seul vrai voyage... ne serait pas d'aller vers de nouveaux paysages, mais d'avoir d'autres yeux.", author: "Marcel Proust" },
     { text: "Everybody in this country should learn to program a computer, because it teaches you how to think", author: "Steve Jobs" },
     { text: "Work hard in silence, let success make the noise", author: "Frank Ocean" },
-    { text: "The difference between a dream and a projet, is a date", author: "Walt Disney" },
     { text: "The best way to predict the futur is to invent it", author: "Alan Kay" },
-    { text: "La vie est ce que nous en faisons.", author: "John Lennon" },
-    { text: "Le seul vrai voyage... ne serait pas d'aller vers de nouveaux paysages, mais d'avoir d'autres yeux.", author: "Marcel Proust" }
+    { text: "The difference between a dream and a projet, is a date", author: "Walt Disney" },
+    { text: "Life is what we make it", author: "John Lennon" }
   ]
 
 

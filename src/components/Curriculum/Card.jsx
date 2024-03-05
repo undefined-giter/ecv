@@ -44,7 +44,7 @@ export default function Cart({icon, goRightIcon, firstItem, title, subtitle, bre
                             <p className={`text-sm font-medium tracking-wide ${darkMode ? 'text-gray-200' : 'text-gray-900'}`}>{ children }</p>
                         </>
                     :
-                        <img src={`/docs/qualifications/${clicked === 1 ? src : src2}`} alt={`diplome relatif a l'activité : ${(clicked === 1 ? src : src2).split('.').slice(0, -1).join('.')}`} style={{ height: '285px', pointerEvents: 'none', margin:'auto' }} />
+                        <img src={`/docs/qualifications/${clicked === 1 ? src : src2}`} alt={`diplome relatif a l'activité : ${(clicked === 1 ? src : src2).split('.').slice(0, -1).join('.')}`} style={{ height: '272px', pointerEvents: 'none', margin:'auto' }} />
                 }
             </div>
             { goRightIcon && rightIcon }

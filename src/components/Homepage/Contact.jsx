@@ -76,6 +76,7 @@ export default function Contact(){
                 setSendingMail(false)
                 setIsBlue(true)
             }, 400)
+            setTimeout(()=>{document.querySelector('#close').click()}, 2000)
         }).catch(error => {setMailSent(false); setErrorSendingMail(true); console.error('Erreur lors de l\'envoi de l\'email :', error)})
         setTimeout(()=>{setMailDivDesapear(true)}, 3000)
 

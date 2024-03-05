@@ -97,6 +97,7 @@
     transition: opacity 0.5s ease-in-out;
     color: white;
     border-radius: 1em;
+    z-index: 900;
 }
 
 .hide{display: none}
