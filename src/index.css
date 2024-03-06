@@ -17,8 +17,13 @@ html{
     scrollbar-color: var(--scrollbar) var(--scrollbar_bg);
     scrollbar-width: thin;
     user-select: none;
-    min-height: 100%;
 }
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+body{min-height: 100vh !important;}
 
 p, h1, h2, h5, h6{
     cursor: default;

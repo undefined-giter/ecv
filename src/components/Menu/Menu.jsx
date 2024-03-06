@@ -1,5 +1,5 @@
 import s from "./style.module.css"
-import React, { useState, useEffect } from "react"
+import { useState, useEffect } from "react"
 import { Outlet, useNavigate, useLocation } from "react-router-dom"
 import { useScreen } from '/src/contexts/ScreenContext'
 import { useDarkMode } from '/src/contexts/DarkModeContext'
@@ -23,15 +23,20 @@ export default function Menu(){
     link.href = 'src/components/Menu/googleTrad.css'
     document.head.appendChild(link)
     document.querySelector('.goog-te-combo').setAttribute('title', 'Choose Language\n 🗣️🌎🌍🌏🤌')
+
+    document.querySelector('.goog-te-combo').style.content = ''
+    document.querySelector('.VIpgJd-ZVi9od-l4eHX-hSRGPd').style.display = 'none'
+    document.querySelector("#google_translate_element").style.height = '24px'
+    document.querySelector("body > div > iframe").style.height = '24px'
+    document.querySelector("#\\:1\\.close > img").click()
   }
-  
+
   const [imgLangShown, setimgLangShown] = useState(true)
   const switchImgInput = ()=>{
     setimgLangShown(!imgLangShown)
 
     googleTranslateElementInit()
   }
-  
 
   const [menuBurgerDeployed, setMenuBurgerDeployed] = useState(false)
 
@@ -70,6 +75,26 @@ export default function Menu(){
     document.querySelector('#presentation').style.borderRadius = '1em'
     if(separatorhiddedInBurger){separatorhiddedInBurger.style.display = 'none'}
   }
+
+
+  //removing google trad shit
+  function observeDOMForTranslationWidget() {
+    const observer = new MutationObserver((mutations, obs) => {
+      mutations.forEach(mutation => {
+        mutation.addedNodes.forEach(node => {
+          if (node.nodeType === 1 && (node.classList.contains('VIpgJd-ZVi9od-ORHb') || node.id === 'goog-gt-tt')) {
+            node.parentNode.removeChild(node);
+          }
+        });
+      });
+    });
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
+  }
+  window.onload = observeDOMForTranslationWidget;
+
 
   return(
     <main>

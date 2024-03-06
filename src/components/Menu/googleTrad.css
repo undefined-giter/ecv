@@ -1,10 +1,24 @@
-iframe{display:none !important; height:0;}
-select option{color: var(--cyan); background-color: var(--blue) !important}
-select{text-align: center; scrollbar-width:thin; scrollbar-color: var(--blue) var(--blue);}
-select::-webkit-scrollbar-track{background-color: var(--blue);}
-select::-webkit-scrollbar-thumb{background-color: var(--blue);border-radius: 5px;}
-.goog-te-combo{cursor: pointer !important;outline: none;background: var(--blue); width: 18px; height: 18px; margin: 5px 1px 0 0 !important; padding-right: 2px; border-radius: 1em !important;color: var(--cyan)}
+iframe{display:none !important; height:0 !important;}
+select option{color: var(--cyan)!important; background-color: var(--blue) !important}
+select{text-align: center; scrollbar-width:thin; scrollbar-color: var(--blue) var(--blue)!important;}
+select::-webkit-scrollbar-track{background-color: var(--blue)!important;}
+select::-webkit-scrollbar-thumb{background-color: var(--blue)!important;border-radius: 5px;}
+.goog-te-combo{cursor: pointer !important;outline: none;background: var(--blue); width: 18px; height: 18px; margin: 5px 1px 0 0 !important; padding-right: 2px; border-radius: 1em !important;color: var(--cyan) !important;}
 .goog-te-combo:hover{transform: scale(1.15)}
-.goog-te-gadget{font-size: 0 !important;}
-.VIpgJd-ZVi9od-l4eHX-hSRGPd, .VIpgJd-ZVi9od-aZ2wEe,.VIpgJd-ZVi9od-aZ2wEe-OiiCO, .VIpgJd-ZVi9od-aZ2wEe-OiiCO-ti6hGc, .VIpgJd-yAWNEb-l4eHX, .VIpgJd-suEOdc, .VIpgJd-yAWNEb-L7lbkb{display:none !important;}
+.goog-te-gadget{font-size: 0 !important; height:0 !important;}
+.skiptranslate.goog-te-gadget{display: 'none'!important; opacity: 0 !important;}
+.VIpgJd-ZVi9od-ORHb, .VIpgJd-ZVi9od-ORHb-OEVmcd, .skiptranslate, 
+.VIpgJd-ZVi9od-l4eHX-hSRGPd, .VIpgJd-ZVi9od-aZ2wEe,.VIpgJd-ZVi9od-aZ2wEe-OiiCO, 
+.VIpgJd-ZVi9od-aZ2wEe-OiiCO-ti6hGc, .VIpgJd-yAWNEb-l4eHX, .VIpgJd-suEOdc, .VIpgJd-yAWNEb-L7lbkb
+{display:none !important; opacity:0 !important; height:0 !important; visibility: 'hidden' !important; z-index: -10 !important}
 html{height:auto !important}
+.skiptranslate > div > select {display: block !important; opacity:1 !important;}
+body > table, #goog-gt-tt, .VIpgJd-yAWNEb-L7lbkb, .skiptranslate{display: 'none' !important; opacity: 0 !important; height: 0 !important; height: 0 !important; width: 0 !important;}
+#\3A 1\.container {display:none}
+.skiptranslate .goog-te-gadget{display: 'none' !important}
+.skiptranslate{background-color: transparent !important; color: transparent !important}
+.goog-logo-link{display:none}
+.goog-te-combo{margin: 0 !important}
+.goog-te-gadget, .goog-te-gadget:hover{font-size: 0 !important;}
+#goog-gt-tt{display:none !important}
+iframe{display:none !important}

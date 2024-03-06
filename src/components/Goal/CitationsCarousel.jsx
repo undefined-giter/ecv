@@ -35,7 +35,7 @@ export default function CitationsCarousel({ quotes }){
             <p className='text-center text-zinc-400'>"{quotes[currentIndex].text}"</p>
             <small className='text-center text-zinc-500'>{quotes[currentIndex].author}</small>
         </div>
-        <div className='absolute right-2 top-5'>
+        <div className='absolute right-2 top-10'>
             <button onClick={goBack}>⬅️</button>
             <button onClick={goNext}>➡️</button>
         </div>        

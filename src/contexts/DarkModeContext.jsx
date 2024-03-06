@@ -8,7 +8,7 @@ export const DarkModeProvider = ({ children }) => {
   const [darkMode, setDarkMode] = useState(true)
 
   useEffect(() => {
-    const htmlElement = document.querySelector('html')
+    const htmlElement = document.querySelector('body')
     
     if (htmlElement) {
       if(darkMode){
@@ -22,7 +22,7 @@ export const DarkModeProvider = ({ children }) => {
 
     const favicon = document.querySelector('link[rel="icon"]')
     if(favicon){
-      const faviconPath = darkMode ? '/favicon-dark.ico' : '/favicon-light.ico'
+      const faviconPath = darkMode ? './../../faviconDark.ico' : './../../faviconLight.ico'
       favicon.href = faviconPath
     }
 

@@ -19,10 +19,13 @@
 .dark{
     color: var(--cyan);
     --blue: var(--blue-light);
-    --green: var(--green-light);
-    background: linear-gradient(var(--blue), var(--navyBlue));
+    --green: var(--green-light); 
     --scrollbar: var(--blue-light);
     --scrollbar_bg: var(--navyBlue);
+    background: linear-gradient(var(--blue), var(--navyBlue));
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: 100% auto;
 }
 
 .light{
@@ -30,9 +33,9 @@
     --blue: var(--blue-dark);
     --green: var(--green-dark);
     background: linear-gradient(var(--cyan), var(--blue-light));
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: 100% auto;
     --scrollbar: var(--cyan);
     --scrollbar_bg: var(--blue-light);
 }
