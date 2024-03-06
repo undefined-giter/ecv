@@ -19,17 +19,17 @@ export default function Curriculum() {
   return(
     isLargeScreen ?
       <>
-        <div className="flex flex-col relative overflow-hidden">
+        <div className="flex flex-col relative overflow-hidden mb-2">
 
-        <div className={`absolute border-opacity-90 border h-full mb-8 ${darkMode ? 'border-cyan-500' : 'border-cyan-800'}`} style={{left: 'calc(50% - 2px)'}}></div>
+        <div className={`absolute border-opacity-90 border h-full ${darkMode ? 'border-cyan-500' : 'border-cyan-800'}`} style={{left: 'calc(50% - 2px)'}}></div>
 
           <div className="flex justify-center px-8 mt-4 -ml-2">
-            <Card icon={faCode} goRightIcon firstItem title='Développeur' subtitle='Carrefour, Apprentissage en Alternance' duration='1 an' src='2022_analysteInformatique_bac+3.png' src2='2022 _adminSystemesInformation_bac+3.png'>Développement et maintenance d'applications internes, principalement en PHP, mais aussi en SQL et JS.<br />Environnement Windows et Linux, Git.<br />Équipe restreinte, méthode Agile.<br /><br />Utilisation quotidienne de Linux.<br />Git, dev, hors-prod et production en équipe.<br />Découverte de la gestion des VM en grande entreprise.</Card>
+            <Card icon={faCode} goRightIcon firstLeftItem title='Développeur' subtitle='Carrefour, Apprentissage en Alternance' duration='1 an' src='2022_analysteInformatique_bac+3.png' src2='2022 _adminSystemesInformation_bac+3.png' customImgWidth='693px'>Développement et maintenance d'applications internes, principalement en PHP, mais aussi en SQL et JS.<br />Environnement Windows et Linux, Git.<br />Équipe restreinte, méthode Agile.<br /><br />Utilisation quotidienne de Linux.<br />Git, dev, hors-prod et production en équipe.<br />Découverte de la gestion des VM en grande entreprise.</Card>
           </div>
 
           <div className="flex justify-end px-8 mb-8">
             <div className="w-1/2" style={{ marginLeft: 'calc(50% + 15px)' }}>
-              <Card icon={faLaptopCode} title='Développeur Web' subtitle='Formation continue chez 3w Academy' duration='3 mois' src='2020_bac_2.jpg'>Acquisition des bases du Développement Web et autoformation.<br />Création de site avec les langages HTML, CSS, JS, PHP et SQL.<br />Découverte de VSC, mySQL, Bootstrap, WordPress, jQuery, Git...<br /><br />Émerveillement du potentiel informatique.<br />Intérêt croissant envers le développement.<br />Naissance d'une passion.</Card>
+              <Card icon={faLaptopCode} title='Développeur Web' subtitle='Formation continue chez 3w Academy' duration='3 mois' src='2020_bac_2.jpg' customImgHeight='252px'>Acquisition des bases du Développement Web et autoformation.<br />Création de site avec les langages HTML, CSS, JS, PHP et SQL.<br />Découverte de VSC, mySQL, Bootstrap, WordPress, jQuery, Git...<br /><br />Émerveillement du potentiel informatique.<br />Intérêt croissant envers le développement.<br />Naissance d'une passion.</Card>
             </div>
           </div>
 
@@ -43,13 +43,13 @@ export default function Curriculum() {
             </div>
           </div>
 
-          <div className="flex justify-center px-8 mb-4">
-              <Card icon={faWheatAwn} goRightIcon title='Brasseur' subtitle='Brasserie Georges, La Soyeuse, McAuslan' duration='3 ans' src='2014_bac_pro.jpg'>Fabrication de bières variées.<br />Création et suivi de recettes traditionnels.<br />Contrôle des brassins du grain au verre.<br />Conseils et explications aux clients.<br /><br />Découverte d'un monde chaleureux, puis devenu un hobby.</Card>
+          <div className="flex justify-center px-8 mb-4 ml-3">
+              <Card icon={faWheatAwn} goRightIcon lastLeftItem title='Brasseur' subtitle='Brasserie Georges, La Soyeuse, McAuslan' duration='3 ans' src='2014_bac_pro.jpg' customImgWidth='398px' customImgHeight='232px'>Fabrication de bières variées.<br />Création et suivi de recettes traditionnels.<br />Contrôle des brassins du grain au verre.<br />Conseils et explications aux clients.<br /><br />Découverte d'un monde chaleureux, et d'un nouveau loisir.</Card>
           </div>
 
           <div className="flex justify-end w-full px-8 mb-6">
             <div className="w-1/2" style={{ marginLeft: 'calc(50% + 15px)' }}>
-              <Card icon={faPencil} title='Menuisier' subtitle='Komilfo, SDCC, Berriat Bâtiment, Sarrazin, Gontard' duration='5 ans' src='2010_cap_fab_men.jpg' src2='2011_cap_ins_men.jpg'>Fabrication et pose de fenêtres, portes, volets et meubles de style anciens dans des menuiseries artisanales.<br />Fabrication d'ossature bois et pose de menuiseries aluminium.<br /><br />Véritable découverte du plaisir de créer.<br />Appréciation de l'échange avec les clients.<br />Apprentissage de l'autonomie et du travail soigné.</Card>
+              <Card icon={faPencil} title='Menuisier' subtitle='Komilfo, SDCC, Berriat Bâtiment, Sarrazin, Gontard' duration='5 ans' src='2010_cap_fab_men.jpg' src2='2011_cap_ins_men.jpg' customImgWidth='240px' customImgHeight='252px'>Fabrication et pose de fenêtres, portes, volets et meubles de style anciens dans des menuiseries artisanales.<br />Fabrication d'ossature bois et pose de menuiseries aluminium.<br /><br />Véritable découverte du plaisir de créer.<br />Appréciation de l'échange avec les clients.<br />Apprentissage de l'autonomie et du travail soigné.</Card>
             </div>
           </div>
         </div>
