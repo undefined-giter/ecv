@@ -15,7 +15,7 @@ export default function Hobbies() {
     {src: 'billard.png', title: 'activités diverses', txtDark:true},
     {src: 'decouverte.jpg', title: 'découvertes', txtDark:true},
     {src: 'marche.jpg', title: 'marche'},
-    {src: 'montagnes.jpg', title: 'montagnes'},
+    {src: 'montagnes.jpg', title: 'montagnes', txtDark:true},
     {src: 'hick.jpg', title: 'hick'},
     {src: 'humour.jpg', title: 'spectacles d\'humour'},
     {src: 'toulouse.jpg', title: 'villes françaises'},
@@ -28,7 +28,7 @@ export default function Hobbies() {
     
     {src: 'spectacles.jpg', title: 'spectacles de lumières', verticalImg:true},
     {src: 'nourriture.jpg', title: 'nourriture', verticalImg:true},
-    {src: 'createur.png', title: 'créateur🖐️', verticalImg:true},
+    {src: 'createur.png', title: 'créateur🖐️', verticalImg:true, txtDark:true},
     {src: 'rat.jpg', title: 'tous les animaux', verticalImg:true},
     {src: 'imaginaire.png', title: 'univers imaginaires', verticalImg:true, moveLeft:true},
     {src: 'botc.png', title: 'jeux à identité cachée', verticalImg:true, txtDark:true},
