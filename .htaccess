@@ -1,0 +1,12 @@
+RewriteEngine On
+
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+RewriteCond %{HTTP_HOST} !^www\. [NC]
+RewriteRule ^ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# RewriteCond %{REQUEST_URI} !^/www/.+\.(jpg|js|css|png|gif)$
+# RewriteCond %{DOCUMENT_ROOT}/www%{REQUEST_URI} !-f
+# RewriteCond %{DOCUMENT_ROOT}/www%{REQUEST_URI} !-d
+# RewriteRule ^ /www/index.html [L]
