@@ -33,8 +33,8 @@ export default function Goal(){
   ]
 
 
-  return <div className='px-4'>
-    <div className={`-translate-x-3 ${s.inner_tab_div} ${darkMode ? '' : s.inner_tab_div_light}`}>
+  return <div className='px-4 mt-2'>
+    <div className={`${s.inner_tab_div} ${darkMode ? '' : s.inner_tab_div_light}`}>
       <button onClick={() => setTabSelected(0)} className={`${s.tabs} ${s.left_tab} ${!tabSelected ? s.selected : ''} ${!darkMode & !tabSelected ? s.selected_light : ''} ${!darkMode ? s.tabs_light : ''}`}>Professionnelle</button>
       <span  className={s.separator}>|</span>
       <button onClick={() => setTabSelected(1)} className={`${s.tabs} ${s.right_tab} ${tabSelected ? s.selected : ''} ${!darkMode & tabSelected ? s.selected_light : ''} ${!darkMode ? s.tabs_light : ''}`}>personnelle</button>
@@ -73,7 +73,7 @@ export default function Goal(){
           <div className='relative'>
             <p className='absolute left-1/2 -translate-x-1/2 -translate-y-3.5 z-10 text-xs'>Habitant de l'agglomération lyonnaise</p>
             <div className={darkMode ? s.dark_iframe_map : ''}>
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62978.12976235903!2d4.81781879230826!3d45.76585083713645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47f4ea516ae88797%3A0x408ab2ae4bb21f0!2sLyon!5e0!3m2!1sfr!2sfr!4v1709564000993!5m2!1sfr!2sfr?entry=ttu" style={{border:0, width: '100%', maxWidth: '750px', height: '370px', maxHeight: '400px'}} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62978.12976235903!2d4.81781879230826!3d45.76585083713645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47f4ea516ae88797%3A0x408ab2ae4bb21f0!2sLyon!5e0!3m2!1sfr!2sfr!4v1709564000993!5m2!1sfr!2sfr?entry=ttu" style={{border:0, width: '100%', maxWidth: '750px', height: '300px'}} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
             </div>
           </div>
         </div>

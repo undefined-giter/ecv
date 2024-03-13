@@ -32,9 +32,9 @@ export default function Cart({icon, goRightIcon, firstLeftItem, lastLeftItem, ti
     }
 
     return(
-        <div className={`max-w-[480px] ${goRightIcon ? '-translate-x-1/2 flex' : ''}`}>
+        <div className={` ${isLargeScreen ? 'max-w-[446px]' : 'max-w-[385px] -mr-5'} ${goRightIcon ? '-translate-x-1/2 flex' : ''}`}>
             { !goRightIcon && leftIcon }
-            <div onClick={handleCardClick} className={`rounded-lg shadow-xl px-6 py-4 hover:scale-105 transition-all ${isLargeScreen ? '' : 'ml-3'} ${darkMode ? 'bg-blue-800' : 'bg-cyan-300'}`}>
+            <div onClick={handleCardClick} className={`rounded-lg shadow-xl px-6 py-4 transition-all ${isLargeScreen ? 'hover:scale-105' : 'scale-95 hover:scale-100'} ${darkMode ? 'bg-blue-800' : 'bg-cyan-300'}`}>
                 {
                     !clicked ?
                         <div style={{textAlign: 'left'}}>

@@ -94,7 +94,6 @@ export default function Homepage(){
           <a href="/docs/LM_RIPERTLéo_Développeur.pdf" target="_blank" className={`${s.docs} ${!darkMode ? s.docs_light : ''} ${!isMiddleScreen ? 'mt-2' : ''}`} id="lm" >Télécharger LM</a>
         </div>
         <br />
-        <br />
         <div id='contact'>
           <button onClick={openModal} className={`${s.docs} ${!darkMode ? s.docs_light : ''} ${!welcomeDoneOnce ? s.hide : s.mail_show} text-4xl`}>📧</button>
           <Modal isOpen={isModalOpen} onClose={closeModal}>

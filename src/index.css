@@ -22,8 +22,8 @@ html, body {
     margin: 0;
     padding: 0;
     width: 100%;
+    min-height: 100vh;
 }
-body{min-height: 100vh !important;}
 
 p, h1, h2, h5, h6{
     cursor: default;

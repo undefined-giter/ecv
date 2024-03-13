@@ -82,6 +82,8 @@
 
 h1{text-align: center;}
 
+ul{align-items:start;}
+
 .outlet{padding-top: 50px;}
 
 
@@ -90,6 +92,7 @@ h1{text-align: center;}
     color: var(--cyan);
     background: var(--blue);
     border-radius: 1em;
+    text-align: start;
 }
 .transform_translate{transform: translateX(-45px)}
 

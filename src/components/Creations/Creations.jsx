@@ -40,7 +40,7 @@ export default function Creations() {
           </CreationCard>
         </div>
       </div>
-      <div className='text-left md:text-center p-2'>
+      <div className='text-left md:text-center p-1 mb-8 md:mb-0'>
         D'autres anciens projets sur mon <a href="https://github.com/undefined-giter?tab=repositories" target='_blank' className='font-bold'>github↗️</a>
       </div>
       <Footer />
