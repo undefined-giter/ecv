@@ -67,7 +67,7 @@ export default function Homepage(){
 
   const [isModalOpen, setIsModalOpen] = useState(openContactModal | false);
 
-  const openModal = () => setIsModalOpen(true);
+  const openModal = () => setIsModalOpen(true)
   const closeModal = () => {setIsModalOpen(false); setOpenContactModal(false)}
 
 
@@ -82,7 +82,7 @@ export default function Homepage(){
             {ProfileImage && <ProfileImage />}
           </div>
           <h2 className={`${`${s.my_name} ${!welcomeDoneOnce ? s.hide : s.show}`} transition-opacity duration-900 ${!homepageHasBeenVisited & !otherPageHasBeenVisited ? s.my_name_firstTime : ''} ${!darkMode ? s.my_name_light : ''}`}>Léo RIPERT</h2>
-          <p className={`${`${s.job_title} ${!welcomeDoneOnce ? s.hide : s.show}`} transition-opacity duration-1000 ${!homepageHasBeenVisited & !otherPageHasBeenVisited ? s.job_title_firstTime : ''}`}>Développeur Web</p>
+          <p className={`${`${s.job_title} ${otherPageHasBeenVisited ? s.job_title_notFirst : s.job_title_firstTime} ${!welcomeDoneOnce ? `${s.hide}` : s.show}`} transition-opacity duration-1000 ${!homepageHasBeenVisited & !otherPageHasBeenVisited ? s.job_title_firstTime : ''}`}>Développeur Web</p>
           <div className={`flex items-center justify-center h-24`}>
             <Suspense fallback={<div>{/* Chargement🔎 */}</div>}>
               <TechStack />

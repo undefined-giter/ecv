@@ -43,39 +43,37 @@ export default function Goal(){
       <p style={{textAlign:'center', transform: `${!tabSelected ? 'translate(-68px, -10px)' : 'translate(59px, -10px)'}`}}>🔻</p>
     </div>
     <div className='max-w-[750px] min-w-[210px] mx-auto mb-8'>
-      { !tabSelected &&
-        <p style={{ textAlign: 'justify' }}>
-          &nbsp;&nbsp;&nbsp;&nbsp;Vous êtes certainement ici suite à ma candidature, vous savez donc que je suis en recherche d'emploi, et que vous avez un besoin qui correspond à mes compétences.
-          <br /><br />
-          &nbsp;&nbsp;&nbsp;&nbsp;Mon expérience professionnelle sur des projets de grande envergure, et la réalisation de multiples petits projets personnels FullStack m'ont construit une solide base de connaissances en développement.
-          <br /><br />
-          &nbsp;&nbsp;&nbsp;&nbsp;Prenant plaisir à créer, je suis déterminé à poursuivre ma formation sur diverses technologies et à approfondir mes compétences aquises.<br />
-          Ma curiosité et mon implication naturelles sont des atouts que je souhaite mettre en avant, car en pratique ils se traduisent en une véritable valeur ajoutée à l'équipe.
-          <br /><br />
-          &nbsp;&nbsp;&nbsp;&nbsp;Ayant travaillé dans différents domaines, je me sens particulièrement en phase avec le développement, ce domaine où l'apprentissage continu, la créativité, l'apport personnel et la veille technologique sont une passion plus qu'une nécessité.<br />
-          C'est pourquoi je suis convaincu de ma contribution positive à l'entreprise.
-          <br /><br />
-          &nbsp;&nbsp;&nbsp;&nbsp;Pour toutes ces raisons et bien d'autres je pense être un élément à avoir dans son équipe.<br />
-          Bonne nouvelle : je recherche un emploi autour de Lyon !<br />
-          Et comme une bonne nouvelle ne vient jamais seule, sachez que je suis disponible immédiatement !<br /><br />
-          Alors n'attendez pas plus pour <Link onClick={() => setOpenContactModal(true)} to={{ pathname: "/", state: { openContactModal: true } }}><b>me contacter</b></Link> !
-          <br /><br />
-          &nbsp;&nbsp;&nbsp;&nbsp;Ayant envie de travailler, j'espère avoir un retour de votre part pour pouvoir échanger sur notre éventuelle collaboration.
-        </p>
+      { 
+        !tabSelected &&
+        <p style={{textAlign:'justify'}}>
+          Si vous consultez cette page, c'est probablement suite à ma candidature. Permettez-moi de vous expliquer pourquoi je suis le candidat idéal pour répondre à vos besoins.
+        <br /><br />
+        Ayant une expérience significative dans les projets de grande envergure, et la réalisation de plusieurs petits projets personnels FullStack, j'ai déjà acquis des compétences variées, notamment en développement web.
+        <br /><br />
+        Aimant créer, je suis engagé dans un apprentissage continu pour enrichir mes compétences. De plus, ma curiosité et mon implication sont des avantages concrets lors de la réalisation de projets.
+        <br /><br />
+        L'expérience acquise dans divers secteurs m'a conforté dans mon attrait pour le développement, un champ où innovation, créativité et veille technologique sont essentielles.
+        <br /><br />
+        Convaincu d'être un atout pour l'équipe, je suis motivé et disponible immédiatement pour commencer un emploi dans la région lyonnaise.
+        <br /><br />
+        N'hésitez pas à <Link onClick={()=>setOpenContactModal(true)} to={{pathname: "/", state: {openContactModal:true} }}><b>me contacter</b></Link> pour discuter de ma contribution au sein de votre entreprise.
+        <br /><br />
+        Enthousiaste à l'idée de collaborer avec vous, j'attends avec impatience l'opportunité d'échanger sur notre éventuelle collaboration.
+        </p>      
       }
       {
         tabSelected === 1 &&
         <div className='mx-auto'>
-          <div style={{ textAlign: 'justify', marginBottom: '16px' }}>
-            <p>Célibataire et sans enfants, j'ai particulièrement envie d'évoluer pour pouvoir construire ma vie pérennement et comme je le désire.</p>
+          <div style={{textAlign:'justify', marginBottom:'16px'}}>
+            <p>Désireux d'évoluer professionnellement pour construire durablement mon avenir, je suis motivé et prêt à m'engager pleinement dans un nouvel emploi.</p>
             <p>Agréable et positif, je pense être un collègue sympathique comme l'on montré mes précédentes expériences.</p>
           </div>
           <CitationsCarousel quotes={quotes} />
           <br />
           <div className='relative'>
-            <p className='absolute left-1/2 -translate-x-1/2 -translate-y-4 z-10 text-sm'>Habitant de l'agglomération lyonnaise</p>
+            <p className='absolute left-1/2 -translate-x-1/2 -translate-y-3.5 z-10 text-xs'>Habitant de l'agglomération lyonnaise</p>
             <div className={darkMode ? s.dark_iframe_map : ''}>
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62978.12976235903!2d4.81781879230826!3d45.76585083713645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47f4ea516ae88797%3A0x408ab2ae4bb21f0!2sLyon!5e0!3m2!1sfr!2sfr!4v1709564000993!5m2!1sfr!2sfr" style={{border:0, width: '100%', maxWidth: '750px', height: '370px', maxHeight: '400px'}} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62978.12976235903!2d4.81781879230826!3d45.76585083713645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47f4ea516ae88797%3A0x408ab2ae4bb21f0!2sLyon!5e0!3m2!1sfr!2sfr!4v1709564000993!5m2!1sfr!2sfr?entry=ttu" style={{border:0, width: '100%', maxWidth: '750px', height: '370px', maxHeight: '400px'}} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
             </div>
           </div>
         </div>

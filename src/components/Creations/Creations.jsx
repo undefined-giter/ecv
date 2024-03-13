@@ -2,10 +2,10 @@ import { useEffect } from 'react'
 import Footer from '../Footer/Footer.jsx'
 import CreationCard from './CreationCard.jsx'
 import { useVisited } from '/src/contexts/VisitedContext'
-import foodtruck from '/img/creations/foodtruck_representation.png'
-import fruitsMarket from '/img/creations/fruitsMarket_representation.png'
-import spa from '/img/creations/spa_representation.png'
-import gilles from '/img/creations/gilles_representation.png'
+import foodtruck from '/img/creations/foodtruck_representation.jpg'
+import fruitsMarket from '/img/creations/fruitsMarket_representation.jpg'
+import spa from '/img/creations/spa_representation.jpg'
+import gilles from '/img/creations/gilles_representation.jpg'
 
 
 

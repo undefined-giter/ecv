@@ -32,17 +32,17 @@ export default function Cart({icon, goRightIcon, firstLeftItem, lastLeftItem, ti
     }
 
     return(
-        <div className={`max-w-[480px] -mr-6 ${goRightIcon ? '-translate-x-1/2 flex' : ''}`}>
+        <div className={`max-w-[480px] ${goRightIcon ? '-translate-x-1/2 flex' : ''}`}>
             { !goRightIcon && leftIcon }
             <div onClick={handleCardClick} className={`rounded-lg shadow-xl px-6 py-4 hover:scale-105 transition-all ${isLargeScreen ? '' : 'ml-3'} ${darkMode ? 'bg-blue-800' : 'bg-cyan-300'}`}>
                 {
                     !clicked ?
-                        <>
+                        <div style={{textAlign: 'left'}}>
                             <h2 className="mb-3 font-bold text-xl" style={{ color: 'var(--green)' }}>{ title }</h2>
                             <h5 className={`mb-3 font-semibold  ${darkMode ? 'text-cyan-400' : 'text-blue-900'}`} >{ subtitle }</h5>
                             <h6 className="mb-3 font-normal" style={{ color: 'var(--green)' }}><FontAwesomeIcon icon={faClock} style={{color:'var(--green)'}} /> { duration }</h6>
                             <p className={`text-sm font-medium tracking-wide ${darkMode ? 'text-gray-200' : 'text-gray-900'}`}>{ children }</p>
-                        </>
+                        </div>
                     :
                         <img src={`/docs/qualifications/${clicked === 1 ? src : src2}`} alt={`diplome relatif a l'activité : ${(clicked === 1 ? src : src2).split('.').slice(0, -1).join('.')}`} style={{ borderRadius: '0.3em', height: customImgHeight || '272px', pointerEvents: 'none', margin:'auto', width: customImgWidth || '' }} />
                 }

@@ -10,15 +10,15 @@ export default function Hobbies() {
   useEffect(()=>{setOtherPageHasBeenVisited(true)}, [])
   
   const hobbies = [
-    {src: 'animaux.png', title: 'les animaux'},
+    {src: 'animaux.jpg', title: 'les animaux'},
     {src: 'archery tag.jpg', title: 'archery tag', txtDark:true},
-    {src: 'billard.png', title: 'activités diverses', txtDark:true},
+    {src: 'billard.jpg', title: 'activités diverses', txtDark:true},
     {src: 'decouverte.jpg', title: 'découvertes', txtDark:true},
     {src: 'marche.jpg', title: 'marche'},
     {src: 'montagnes.jpg', title: 'montagnes', txtDark:true},
     {src: 'hick.jpg', title: 'hick'},
     {src: 'humour.jpg', title: 'spectacles d\'humour'},
-    {src: 'toulouse.jpg', title: 'villes françaises'},
+    {src: 'toulouse.jpg', title: 'villes'},
     {src: 'voyage.jpg', title: 'voyages'},
     {src: 'visites.jpg', title: 'visites'},
     {src: 'vue.jpg', title: 'vues'},
@@ -28,11 +28,11 @@ export default function Hobbies() {
     
     {src: 'spectacles.jpg', title: 'spectacles de lumières', verticalImg:true},
     {src: 'nourriture.jpg', title: 'nourriture', verticalImg:true},
-    {src: 'createur.png', title: 'créateur🖐️', verticalImg:true, txtDark:true},
+    {src: 'createur.jpg', title: 'créateur🖐️', verticalImg:true, txtDark:true},
     {src: 'rat.jpg', title: 'tous les animaux', verticalImg:true},
-    {src: 'imaginaire.png', title: 'univers imaginaires', verticalImg:true, moveLeft:true},
-    {src: 'botc.png', title: 'jeux à identité cachée', verticalImg:true, txtDark:true},
-    {src: 'taywin.png', title: 'cinéphile', verticalImg:true}
+    {src: 'imaginaire.jpg', title: 'univers imaginaires', verticalImg:true, moveLeft:true},
+    {src: 'botc.jpg', title: 'jeux à identité cachée', verticalImg:true, txtDark:true},
+    {src: 'taywin.jpg', title: 'cinéphile', verticalImg:true}
   ]
 
   return(
@@ -45,11 +45,11 @@ export default function Hobbies() {
         <img src="/img/bg/hobbies_noBg.png" alt="Foreground" className={s.foreground} />
       </div>
 
-      <div className='z-999 relative text-center font-semibold underline underline-offset-2'>Quelques activités :</div>
+      <div className='z-999 relative text-center font-semibold underline underline-offset-2'>Quelques activités photographiées :</div>
 
       <Grid hobbies={hobbies} />
 
-      <p className='relative mb-8 md:mb-3 z-20 text-center'>Et bien d'autres centres d'intérêts !</p>
+      <p className='relative mb-8 md:my-4 z-20 text-center'>Et bien d'autres centres d'intérêts !</p>
 
       <Footer />
     </div>

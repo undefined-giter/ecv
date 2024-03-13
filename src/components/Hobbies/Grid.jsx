@@ -26,7 +26,7 @@ export default function Grid({ hobbies }){
     }, [])
 
     return (
-        <div className="relative grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-12 p-4 mx-8 justify-items-center justify-center">
+        <div className="relative grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-12 p-4 mx-8 md:mt-2 lg:mt-0 justify-items-center justify-center">
             {hobbies.slice(0, visibleCount).map(({src, title, verticalImg, txtDark, moveLeft}, index) => (
                 <div key={index} className="w-full flex flex-col my-auto">
                     <div className="relative hover:scale-110 transition-transform duration-300 ease-in-out rounded-lg">
