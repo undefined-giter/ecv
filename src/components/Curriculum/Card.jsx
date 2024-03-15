@@ -6,7 +6,7 @@ import { useState } from 'react'
 
 
 
-export default function Cart({icon, goRightIcon, firstLeftItem, lastLeftItem, title, subtitle, breakIt, duration, src, src2, customImgWidth, customImgHeight, children}){
+export default function Cart({icon, goRightIcon, firstLeftItem, lastLeftItem, title, subtitle, breakIt, duration, src, src2, customImgWidth, customImgHeight, wIcon, children}){
   
     const { darkMode } = useDarkMode()
     const { isLargeScreen } = useScreen()
@@ -19,7 +19,7 @@ export default function Cart({icon, goRightIcon, firstLeftItem, lastLeftItem, ti
     </div>
 
     const rightIcon = 
-    <div onClick={handleCardClick} className={`${darkMode ? 'bg-black' : 'bg-cyan-200'} shadow-xl w-8 h-8 rounded-full translate-y-3 z-50 ${firstLeftItem ? 'translate-x-1 w-[44px]' : 'translate-x-1'} ${lastLeftItem ? 'translate-x-0 w-[36px]' : ''}`}>
+    <div onClick={handleCardClick} className={`${darkMode ? 'bg-black' : 'bg-cyan-200'} shadow-xl w-8 h-8 rounded-full translate-y-3 z-50 ${firstLeftItem ? 'translate-x-1 w-[44px]' : 'translate-x-1'} ${lastLeftItem ? 'translate-x-0 w-[36px]' : ''} ${wIcon} `}>
         <h1 className={`${darkMode ? 'text-cyan-200' : 'text-black'} font-semibold text-lg`}><FontAwesomeIcon icon={icon} /></h1>
     </div>
 
@@ -34,7 +34,7 @@ export default function Cart({icon, goRightIcon, firstLeftItem, lastLeftItem, ti
     return(
         <div className={` ${isLargeScreen ? 'max-w-[446px]' : 'max-w-[385px] -mr-5'} ${goRightIcon ? '-translate-x-1/2 flex' : ''}`}>
             { !goRightIcon && leftIcon }
-            <div onClick={handleCardClick} className={`rounded-lg shadow-xl px-6 py-4 transition-all ${isLargeScreen ? 'hover:scale-105' : 'scale-95 hover:scale-100'} ${darkMode ? 'bg-blue-800' : 'bg-cyan-300'}`}>
+            <div onClick={handleCardClick} className={`rounded-lg shadow-xl px-6 py-4 transition-all ${isLargeScreen ? 'hover:scale-105' : 'scale-90 hover:scale-95'} ${darkMode ? 'bg-blue-800' : 'bg-cyan-300'}`}>
                 {
                     !clicked ?
                         <div style={{textAlign: 'left'}}>
