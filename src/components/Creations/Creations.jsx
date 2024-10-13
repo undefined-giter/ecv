@@ -6,7 +6,7 @@ import foodtruck from '/img/creations/foodtruck_representation.jpg'
 import fruitsMarket from '/img/creations/fruitsMarket_representation.jpg'
 import spa from '/img/creations/spa_representation.jpg'
 import gilles from '/img/creations/gilles_representation.jpg'
-
+import cabane from '/img/creations/cabane_representation.png'
 
 
 export default function Creations() {
@@ -18,6 +18,12 @@ export default function Creations() {
   return (
     <>
       <div className="flex justify-center flex-wrap">
+        <div className="p-4">
+          <CreationCard src={cabane} projectName="Cabane" language="Laravel & Vue 3" link="https://cabane.leorip.com/">
+            Site pour présenter, réserver et gérer<small>(as admin) </small> la réservation d'une cabane.
+            <br />-20 % Si vous m'accordez un entretient !
+          </CreationCard>
+        </div>
         <div className="p-4">
           <CreationCard src={foodtruck} projectName="Foodtruck" language="react" link="https://foodtruck.leorip.com/">
             Site pour un foodtruck
