@@ -12,31 +12,31 @@ export default function Menu(){
   const navigate = useNavigate()
   const location = useLocation()
 
-  function googleTranslateElementInit(){
-    new google.translate.TranslateElement(
-      {pageLanguage: 'auto'},
-      'google_translate_element'
-    )
+  // function googleTranslateElementInit(){
+  //   new google.translate.TranslateElement(
+  //     {pageLanguage: 'auto'},
+  //     'google_translate_element'
+  //   )
 
-    const link = document.createElement('link')
-    link.rel = 'stylesheet'
-    link.href = 'src/components/Menu/googleTrad.css'
-    document.head.appendChild(link)
-    document.querySelector('.goog-te-combo').setAttribute('title', 'Choose Language\n 🗣️🌎🌍🌏🤌')
+    // const link = document.createElement('link')
+    // link.rel = 'stylesheet'
+    // link.href = 'src/components/Menu/googleTrad.css'
+    // document.head.appendChild(link)
+    // document.querySelector('.goog-te-combo').setAttribute('title', 'Choose Language\n 🗣️🌎🌍🌏🤌')
 
-    document.querySelector('.goog-te-combo').style.content = ''
-    document.querySelector('.VIpgJd-ZVi9od-l4eHX-hSRGPd').style.display = 'none'
-    document.querySelector("#google_translate_element").style.height = '24px'
-    document.querySelector("body > div > iframe").style.height = '24px'
-    document.querySelector("#\\:1\\.close > img").click()
-  }
+    // document.querySelector('.goog-te-combo').style.content = ''
+    // document.querySelector('.VIpgJd-ZVi9od-l4eHX-hSRGPd').style.display = 'none'
+    // document.querySelector("#google_translate_element").style.height = '24px'
+    // document.querySelector("body > div > iframe").style.height = '24px'
+    // document.querySelector("#\\:1\\.close > img").click()
+  // }
 
-  const [imgLangShown, setimgLangShown] = useState(true)
-  const switchImgInput = ()=>{
-    setimgLangShown(!imgLangShown)
+  // const [imgLangShown, setimgLangShown] = useState(true)
+  // const switchImgInput = ()=>{
+  //   setimgLangShown(!imgLangShown)
 
-    googleTranslateElementInit()
-  }
+  //   googleTranslateElementInit()
+  // }
 
   const [menuBurgerDeployed, setMenuBurgerDeployed] = useState(false)
 
@@ -78,22 +78,22 @@ export default function Menu(){
 
 
   //removing google trad shit
-  function observeDOMForTranslationWidget() {
-    const observer = new MutationObserver((mutations, obs) => {
-      mutations.forEach(mutation => {
-        mutation.addedNodes.forEach(node => {
-          if (node.nodeType === 1 && (node.classList.contains('VIpgJd-ZVi9od-ORHb') || node.id === 'goog-gt-tt')) {
-            node.parentNode.removeChild(node);
-          }
-        });
-      });
-    });
-    observer.observe(document.body, {
-      childList: true,
-      subtree: true
-    });
-  }
-  window.onload = observeDOMForTranslationWidget;
+  // function observeDOMForTranslationWidget() {
+  //   const observer = new MutationObserver((mutations, obs) => {
+  //     mutations.forEach(mutation => {
+  //       mutation.addedNodes.forEach(node => {
+  //         if (node.nodeType === 1 && (node.classList.contains('VIpgJd-ZVi9od-ORHb') || node.id === 'goog-gt-tt')) {
+  //           node.parentNode.removeChild(node);
+  //         }
+  //       });
+  //     });
+  //   });
+  //   observer.observe(document.body, {
+  //     childList: true,
+  //     subtree: true
+  //   });
+  // }
+  // window.onload = observeDOMForTranslationWidget;
 
 
   return(
@@ -115,10 +115,10 @@ export default function Menu(){
         </ul>
       </nav>
       <div className={`flex fixed right-1 top-1`} style={{zIndex: '995'}}>
-        {imgLangShown && <button onClick={switchImgInput} className={s.btnLang}>
+        {/*{imgLangShown && <button onClick={switchImgInput} className={s.btnLang}>
             <img src="/img/world.png" width='20px' alt="Language Selection" title={"Choose Language\n 🗣️🌎🌍🌏🤌"} />
         </button>}
-        <div id='google_translate_element'></div>
+        <div id='google_translate_element'></div>*/}
         <button onClick={() => {toggleDarkMode(); childsDisappear()}} className={s.darkModeSwitcher}>
           {darkMode ? '☀️' : '🌑'}
         </button>
