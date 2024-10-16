@@ -114,7 +114,7 @@ export default function Menu(){
           <li onClick={() => {navigate("/Hobbys"); toggleMenu()}} className={`${location.pathname === "/Hobbys" ? s.active : ""} ${darkMode ? s.dark_hover : s.light_hover}`}>Hobbys</li>
         </ul>
       </nav>
-      <div className={`flex fixed right-1 top-1`} style={{zIndex: '995'}}>
+      <div className={`fixed right-1`} style={{zIndex: '995'}}>
         {/*{imgLangShown && <button onClick={switchImgInput} className={s.btnLang}>
             <img src="/img/world.png" width='20px' alt="Language Selection" title={"Choose Language\n 🗣️🌎🌍🌏🤌"} />
         </button>}
