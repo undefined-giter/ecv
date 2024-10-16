@@ -1,5 +1,5 @@
 import s from './style.module.css'
-import { Link, useLocation } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import Footer from '../Footer/Footer.jsx'
 import { useEffect, useState } from 'react'
 import { useScreen } from '/src/contexts/ScreenContext'
@@ -9,19 +9,19 @@ import CitationsCarousel from './CitationsCarousel.jsx'
 
 export default function Goal(){
 
-  const location = useLocation()
   const { darkMode } = useDarkMode()
   const { setOpenContactModal } = useScreen()
   const { setOtherPageHasBeenVisited } = useVisited()
 
   useEffect(()=>{setOtherPageHasBeenVisited(true)}, [])
 
-  const { kindOfPresentation } = location.state || 0
-  const [ tabSelected, setTabSelected ] = useState(kindOfPresentation)
+  const initialTab = localStorage.getItem('lastSelectedTab') ? Number(localStorage.getItem('lastSelectedTab')) : 0
+  const [ tabSelected, setTabSelected ] = useState(initialTab)
 
-  useEffect(()=>{
-    setTabSelected(kindOfPresentation)
-  }, [kindOfPresentation])
+  const handleTabClick = (tabIndex) => {
+    setTabSelected(tabIndex)
+    localStorage.setItem('lastSelectedTab', tabIndex)
+  }
 
   const quotes = [
     { text: "Le seul vrai voyage... ne serait pas d'aller vers de nouveaux paysages, mais d'avoir d'autres yeux.", author: "Marcel Proust" },
@@ -35,9 +35,9 @@ export default function Goal(){
 
   return <div className='px-4 mt-2'>
     <div className={`${s.inner_tab_div} ${darkMode ? '' : s.inner_tab_div_light}`}>
-      <button onClick={() => setTabSelected(0)} className={`${s.tabs} ${s.left_tab} ${!tabSelected ? s.selected : ''} ${!darkMode & !tabSelected ? s.selected_light : ''} ${!darkMode ? s.tabs_light : ''}`}>Professionnelle</button>
+      <button onClick={() => handleTabClick(0)} className={`${s.tabs} ${s.left_tab} ${!tabSelected ? s.selected : ''} ${!darkMode & !tabSelected ? s.selected_light : ''} ${!darkMode ? s.tabs_light : ''}`}>Professionnelle</button>
       <span  className={s.separator}>|</span>
-      <button onClick={() => setTabSelected(1)} className={`${s.tabs} ${s.right_tab} ${tabSelected ? s.selected : ''} ${!darkMode & tabSelected ? s.selected_light : ''} ${!darkMode ? s.tabs_light : ''}`}>personnelle</button>
+      <button onClick={() => handleTabClick(1)} className={`${s.tabs} ${s.right_tab} ${tabSelected ? s.selected : ''} ${!darkMode & tabSelected ? s.selected_light : ''} ${!darkMode ? s.tabs_light : ''}`}>personnelle</button>
     </div>
     <div className='overflow-hidden'>
       <p style={{textAlign:'center', transform: `${!tabSelected ? 'translate(-68px, -10px)' : 'translate(59px, -10px)'}`}}>🔻</p>

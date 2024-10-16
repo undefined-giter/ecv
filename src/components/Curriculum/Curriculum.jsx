@@ -24,12 +24,12 @@ export default function Curriculum() {
         <div className={`timeline absolute border-opacity-90 border h-full ${darkMode ? 'border-cyan-500' : 'border-cyan-800'}`} style={{left: 'calc(50% - 1px)', border:'2px solid', borderRadius:'2px'}}></div>
 
           <div className="flex justify-center px-8 mt-4 ml-5">
-            <Card icon={faCode} goRightIcon firstLeftItem title='Développeur' subtitle='Carrefour, Apprentissage en Alternance' duration='1 an' src='2022_analysteInformatique_bac+3.jpg' src2='2022 _adminSystemesInformation_bac+3.jpg' customImgWidth='600px'>Développement et maintenance d'applications internes, principalement en PHP, SQL et JS.<br />Environnements Windows et Linux, Git.<br />Équipe restreinte, méthode Agile.<br /><br />Utilisation de Linux au quotidien.<br />Gestion de VM en grande entreprise.<br />Git, VM de dev, hors-prod et production.</Card>
+            <Card classes="cursor-pointer" icon={faCode} goRightIcon firstLeftItem title='Développeur' subtitle='Carrefour, Apprentissage en Alternance' duration='1 an' src='2022_analysteInformatique_bac+3.jpg' src2='2022 _adminSystemesInformation_bac+3.jpg' customImgWidth='600px'>Développement et maintenance d'applications internes, principalement en PHP, SQL et JS.<br />Environnements Windows et Linux, Git.<br />Équipe restreinte, méthode Agile.<br /><br />Utilisation de Linux au quotidien.<br />Gestion de VM en grande entreprise.<br />Git, VM de dev, hors-prod et production.</Card>
           </div>
 
           <div className="flex justify-end px-8 mb-8 ml-1.5">
             <div className="w-1/2" style={{ marginLeft: 'calc(50% + 15px)' }}>
-              <Card icon={faLaptopCode} title='Développeur Web' subtitle='Formation continue chez 3w Academy' duration='3 mois' src='2020_bac_2.jpg' customImgHeight='252px'>Acquisition des bases du Développement Web.<br />Créations desites avec les langages HTML, CSS, JS, PHP et SQL. Ainsi que mySQL, Bootstrap, WordPress et jQuery.<br /><br />Émerveillement du potentiel informatique.<br />Intérêt croissant envers le développement.<br />Naissance d'une passion.</Card>
+              <Card classes="cursor-pointer" icon={faLaptopCode} title='Développeur Web' subtitle='Formation continue chez 3w Academy' duration='3 mois' src='2020_bac_2.jpg' customImgHeight='252px'>Acquisition des bases du Développement Web.<br />Créations desites avec les langages HTML, CSS, JS, PHP et SQL. Ainsi que mySQL, Bootstrap, WordPress et jQuery.<br /><br />Émerveillement du potentiel informatique.<br />Intérêt croissant envers le développement.<br />Naissance d'une passion.</Card>
             </div>
           </div>
 
@@ -44,12 +44,12 @@ export default function Curriculum() {
           </div>
 
           <div className="flex justify-center px-8 mb-4 ml-10">
-              <Card icon={faWheatAwn} goRightIcon lastLeftItem title='Brasseur' subtitle='Brasserie Georges, La Soyeuse, McAuslan' duration='3 ans' src='2014_bac_pro.jpg' customImgWidth='358px' customImgHeight='232px'>Fabrication de bières savoureuses et variées.<br />Contrôle des brassins du grain au verre.<br />Conseils et explications aux clients.<br /><br />Intérêt théorie des transformations biochimiques.<br />Découverte d'un monde convivial, nouveau loisir.       </Card>
+              <Card classes="cursor-pointer" icon={faWheatAwn} goRightIcon lastLeftItem title='Brasseur' subtitle='Brasserie Georges, La Soyeuse, McAuslan' duration='3 ans' src='2014_bac_pro.jpg' customImgWidth='358px' customImgHeight='232px'>Fabrication de bières savoureuses et variées.<br />Contrôle des brassins du grain au verre.<br />Conseils et explications aux clients.<br /><br />Intérêt théorie des transformations biochimiques.<br />Découverte d'un monde convivial, nouveau loisir.       </Card>
           </div>
 
           <div className="flex justify-end w-full px-8 mb-6 ml-1">
             <div className="w-1/2" style={{ marginLeft: 'calc(50% + 15px)' }}>
-              <Card icon={faPencil} title='Menuisier' subtitle='Komilfo, SDCC, Berriat Bâtiment, Sarrazin, Gontard' duration='5 ans' src='2010_cap_fab_men.jpg' src2='2011_cap_ins_men.jpg' customImgWidth='240px' customImgHeight='272px'>Fabrication et pose de fenêtres, portes, volets et meubles anciens en menuiseries artisanales. Fabrication d'ossature bois et pose de menuiseries aluminium.<br /><br />1 an chez les Compagnons du Devoir.<br />Véritable découverte du plaisir de créer.<br />Appréciation de l'échange avec les clients.<br />Apprentissage de l'autonomie et du travail soigné.</Card>
+              <Card classes="cursor-pointer" icon={faPencil} title='Menuisier' subtitle='Komilfo, SDCC, Berriat Bâtiment, Sarrazin, Gontard' duration='5 ans' src='2010_cap_fab_men.jpg' src2='2011_cap_ins_men.jpg' customImgWidth='240px' customImgHeight='272px'>Fabrication et pose de fenêtres, portes, volets et meubles anciens en menuiseries artisanales. Fabrication d'ossature bois et pose de menuiseries aluminium.<br /><br />1 an chez les Compagnons du Devoir.<br />Véritable découverte du plaisir de créer.<br />Appréciation de l'échange avec les clients.<br />Apprentissage de l'autonomie et du travail soigné.</Card>
             </div>
           </div>
         </div>

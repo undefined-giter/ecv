@@ -6,7 +6,7 @@ import { useState } from 'react'
 
 
 
-export default function Cart({icon, goRightIcon, firstLeftItem, lastLeftItem, title, subtitle, breakIt, duration, src, src2, customImgWidth, customImgHeight, wIcon, children}){
+export default function Cart({icon, goRightIcon, firstLeftItem, lastLeftItem, title, subtitle, breakIt, duration, src, src2, customImgWidth, customImgHeight, wIcon, classes, children}){
   
     const { darkMode } = useDarkMode()
     const { isLargeScreen } = useScreen()
@@ -15,7 +15,7 @@ export default function Cart({icon, goRightIcon, firstLeftItem, lastLeftItem, ti
 
     const leftIcon = 
     <div onClick={handleCardClick} className={`${darkMode ? 'bg-black' : 'bg-cyan-200'} shadow-xl w-8 h-8 rounded-full translate-y-12 relative z-50 ${isLargeScreen ? '-translate-x-8' : '-translate-x-6'}`}>
-        <h1 className={`${darkMode ? 'text-cyan-200' : 'text-black'} font-semibold text-lg`}><FontAwesomeIcon icon={icon} /></h1>
+        <h1 className={`${darkMode ? 'text-cyan-200' : 'text-black'}  font-semibold text-lg`}><FontAwesomeIcon icon={icon} /></h1>
     </div>
 
     const rightIcon = 
@@ -32,16 +32,16 @@ export default function Cart({icon, goRightIcon, firstLeftItem, lastLeftItem, ti
     }
 
     return(
-        <div className={` ${isLargeScreen ? 'max-w-[446px]' : 'max-w-[385px] -mr-5'} ${goRightIcon ? '-translate-x-1/2 flex' : ''}`}>
+        <div className={`${classes} ${isLargeScreen ? 'max-w-[446px]' : 'max-w-[385px] -mr-5'} ${goRightIcon ? '-translate-x-1/2 flex' : ''}`}>
             { !goRightIcon && leftIcon }
             <div onClick={handleCardClick} className={`rounded-lg shadow-xl px-6 py-4 transition-all ${isLargeScreen ? 'hover:scale-105' : 'scale-90 hover:scale-95'} ${darkMode ? 'bg-blue-800' : 'bg-cyan-300'}`}>
                 {
                     !clicked ?
-                        <div style={{textAlign: 'left'}}>
-                            <h2 className="mb-3 font-bold text-xl" style={{ color: 'var(--green)' }}>{ title }</h2>
-                            <h5 className={`mb-3 font-semibold  ${darkMode ? 'text-cyan-400' : 'text-blue-900'}`} >{ subtitle }</h5>
-                            <h6 className="mb-3 font-normal" style={{ color: 'var(--green)' }}><FontAwesomeIcon icon={faClock} style={{color:'var(--green)'}} /> { duration }</h6>
-                            <p className={`text-sm font-medium tracking-wide ${darkMode ? 'text-gray-200' : 'text-gray-900'}`}>{ children }</p>
+                        <div style={{textAlign: 'left'}} >
+                            <h2 className={`${classes} mb-3 font-bold text-xl`} style={{ color: 'var(--green)' }}>{ title }</h2>
+                            <h5 className={`${classes} mb-3 font-semibold  ${darkMode ? 'text-cyan-400' : 'text-blue-900'}`} >{ subtitle }</h5>
+                            <h6 className={`${classes} mb-3 font-normal`} style={{ color: 'var(--green)' }}><FontAwesomeIcon icon={faClock} style={{color:'var(--green)'}} /> { duration }</h6>
+                            <p className={`${classes} text-sm font-medium tracking-wide ${darkMode ? 'text-gray-200' : 'text-gray-900'}`}>{ children }</p>
                         </div>
                     :
                         <img src={`/docs/qualifications/${clicked === 1 ? src : src2}`} alt={`diplome relatif a l'activité : ${(clicked === 1 ? src : src2).split('.').slice(0, -1).join('.')}`} style={{ borderRadius: '0.3em', height: customImgHeight || '272px', pointerEvents: 'none', margin:'auto', width: customImgWidth || '' }} />

@@ -1,0 +1,13 @@
+# Forcer le type MIME pour les fichiers JavaScript
+AddType text/javascript .js
+AddType text/javascript .jsx
+
+# Rediriger toutes les requêtes vers index.html (utile pour les applications SPA)
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.html [L]
+</IfModule>

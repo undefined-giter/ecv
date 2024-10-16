@@ -2,18 +2,18 @@ import s from './style.module.css'
 import { useScreen } from '/src/contexts/ScreenContext'
 import { useVisited } from '/src/contexts/VisitedContext'
 
-import js from '/img/techStack/js.png'
+import vue from '/img/techStack/vue.png'
 import php from '/img/techStack/php.png'
-import symfony from '/img/techStack/symfony.png'
-import react_logo from '/img/techStack/react.png'
+import laravel from '/img/techStack/laravel.png'
+import react from '/img/techStack/react.png'
 import tailwind from '/img/techStack/tailwind.png'
 
 const technologies = [
-    { src: js, name: 'js' },
-    { src: react_logo, name: 'react' },
-    { src: tailwind, name: 'tailwind' },
     { src: php, name: 'php' },
-    { src: symfony, name: 'symfony' },
+    { src: laravel, name: 'laravel' },
+    { src: tailwind, name: 'tailwind' },
+    { src: vue, name: 'vue' },
+    { src: react, name: 'react' },
 ]
 
 
