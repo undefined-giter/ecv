@@ -21,7 +21,10 @@ export default function Creations() {
         <div className="p-4">
           <CreationCard src={cabane} projectName="Cabane" language="Laravel & Vue 3" link="https://cabane.leorip.com/">
             Site pour présenter, réserver et gérer<small>(as admin) </small> la réservation d'une cabane.
-            <br />-20 % Si vous m'accordez un entretient !
+            <br />
+            <span className='text-orange-500 !rounded-lg'>Se connecter (mail/pass) :</span>
+            <br /><span className='select-text !rounded-none'>fake_admin@fake.admin</span>
+            <br /><span className='select-text !rounded-none'>fake_admin@fake.admin</span>
           </CreationCard>
         </div>
         <div className="p-4">

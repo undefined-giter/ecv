@@ -85,8 +85,8 @@
 
 .descriptionChildren{
     font-size: 16px;
-    line-height: 1.2;
-    max-height: 4em;
+    line-height: 1.4;
+    max-height: 6em;
     overflow: hidden;
     display: -webkit-box;
     -webkit-line-clamp: 1;

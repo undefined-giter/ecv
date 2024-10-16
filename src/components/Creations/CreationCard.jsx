@@ -24,7 +24,7 @@ export default function CreationCard({ src, projectName, language, children, lin
               <h6><span>Description</span></h6>
               <div className={s.descriptionChildren}>{children}</div>
             </div>
-            <a href={link} target='_blank' className={`${s.link} ${mouseOver ? '' : s.opacity0}`}>Lien vers {projectName}</a>
+            <a href={link} target='_blank' className={`${s.link} ${mouseOver ? '' : s.opacity0} mr-2`}>Lien vers {projectName}</a>
           </div>
         </div>
       </div>
